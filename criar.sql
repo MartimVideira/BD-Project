@@ -29,7 +29,7 @@ CREATE TABLE StaffType(
 
 DROP TABLE IF EXISTS Teams;
 CREATE TABLE Teams(
-    idTeams int PRIMARY KEY, 
+    idTeams int NOT NULL PRIMARY KEY, 
     name text NOT NULL,
     country text,
     email text NOT NULL
