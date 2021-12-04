@@ -8,9 +8,9 @@ CREATE TABLE Person(
     nationality TEXT NOT NULL,
     name TEXT NOT NULL,
     totalWorkedHours INT,
-    address INT FOREIGN KEY REFERENCES Address(addressId),
-    staffType TEXT FOREIGN KEY REFERENCES StaffType(name),
-    team INT FOREIGN KEY REFERENCES Team(teamId)
+    address INT  REFERENCES Address(addressId),
+    staffType TEXT  REFERENCES StaffType(name),
+    team INT  REFERENCES Team(teamId)
 );
 
 DROP TABLE IF EXISTS Address;
@@ -44,8 +44,8 @@ CREATE TABLE Match (
     startTime DATE,
     duration  DATE,
     endTime DATE CONSTRAINT endTime = startTime + duration ,
-    gameId INT  FOREIGN KEY REFERENCES Game(gameId),
-    addressId INT FOREIGN KEY REFERENCES  Address(addressId)
+    gameId INT   REFERENCES Game(gameId),
+    addressId INT  REFERENCES  Address(addressId)
 
 );
 
@@ -63,28 +63,28 @@ DROP TABLE IF EXISTS Participation
 CREATE TABLE Participation(
     prize FLOAT DEFAULT 0.0,
     classification TEXT,
-    teamId INT FOREIGN KEY Team(teamId), 
-    matchId INT FOREIGN KEY Match(matchId)
+    teamId INT  REFERENCES Team(teamId), 
+    matchId INT  REFERENCES Match(matchId)
 );
 
 CREATE TABLE WorkedTime(
-    person INT NOT NULL PRIMARY KEY FOREIGN KEY REFERENCES Person(NIF),
-    match INT NOT NULL PRIMARY KEY FOREIGN KEY REFERENCES Match(matchId),
+    person INT NOT NULL PRIMARY KEY  REFERENCES Person(NIF),
+    match INT NOT NULL PRIMARY KEY  REFERENCES Match(matchId),
     workedTime INT CONSTRAINT workedTime >= 0
 );
 
 
 DROP TABLE IF EXISTS GameFan;
 CREATE TABLE GameFan(
-    fan INT NOT NULL FOREIGN KEY REFERENCES Person(NIF),
-    game INT FOREIGN KEY REFERENCES Game(gameId),
+    fan INT NOT NULL  REFERENCES Person(NIF),
+    game INT  REFERENCES Game(gameId),
     PRIMARY KEY (fan,game)
 );
 
 
 DROP TABLE IF EXISTS TeamFan;
 CREATE TABLE TeamFan(
-    fan INT NOT NULL FOREIGN KEY REFERENCES Person(NIF),
-    team INT NOT NULL FOREIGN KEY REFERENCES Team(teamId),
+    fan INT NOT NULL  REFERENCES Person(NIF),
+    team INT NOT NULL  REFERENCES Team(teamId),
     PRIMARY KEY (fan,team)
 );
