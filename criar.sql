@@ -38,7 +38,7 @@ CREATE TABLE Team(
 
 
 
-DROP TABLE IF EXISTS Match
+DROP TABLE IF EXISTS Match;
 CREATE TABLE Match (
     matchId INT  NOT NULL PRIMARY KEY,
     startTime DATE,
@@ -51,7 +51,7 @@ CREATE TABLE Match (
 
 
 
-DROP TABLE IF EXISTS Game 
+DROP TABLE IF EXISTS Game ;
 CREATE TABLE Game(
     gameId INT NOT NULL PRIMARY KEY ,
     name TEXT NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE Game(
 );
 
 
-DROP TABLE IF EXISTS Participation
+DROP TABLE IF EXISTS Participation;
 CREATE TABLE Participation(
     prize FLOAT DEFAULT 0.0,
     classification TEXT,
@@ -67,10 +67,12 @@ CREATE TABLE Participation(
     matchId INT  REFERENCES Match(matchId)
 );
 
+DROP TABLE IF EXISTS WorkedTime
 CREATE TABLE WorkedTime(
-    person INT NOT NULL PRIMARY KEY  REFERENCES Person(NIF),
-    match INT NOT NULL PRIMARY KEY  REFERENCES Match(matchId),
+    person INT NOT NULL  REFERENCES Person(NIF),
+    match INT NOT NULL   REFERENCES Match(matchId),
     workedTime INT CONSTRAINT workedTime >= 0
+    PRIMARY KEY (person, match)
 );
 
 
