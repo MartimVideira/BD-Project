@@ -8,9 +8,9 @@ CREATE TABLE Persons(
     nationality text NOT NULL,
     name text NOT NULL,
     TotalWorkedHours int,
-    address text FOREIGN KEY REFERENCES Address(idAddress),
+    address int FOREIGN KEY REFERENCES Address(idAddress),
     staffType text FOREIGN KEY REFERENCES StaffType(name),
-    team text FOREIGN KEY REFERENCES Teams(idTeams)
+    team int FOREIGN KEY REFERENCES Teams(idTeams)
 );
 
 DROP TABLE IF EXISTS Address;
