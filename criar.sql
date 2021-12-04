@@ -51,7 +51,7 @@ CREATE TABLE Match (
 
 
 
-DROP TABLE IF EXISTS Game ;
+DROP TABLE IF EXISTS Game;
 CREATE TABLE Game(
     gameId INT NOT NULL PRIMARY KEY ,
     name TEXT NOT NULL,
@@ -67,7 +67,7 @@ CREATE TABLE Participation(
     matchId INT  REFERENCES Match(matchId)
 );
 
-DROP TABLE IF EXISTS WorkedTime
+DROP TABLE IF EXISTS WorkedTime;
 CREATE TABLE WorkedTime(
     person INT NOT NULL  REFERENCES Person(NIF),
     match INT NOT NULL   REFERENCES Match(matchId),
