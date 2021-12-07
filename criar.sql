@@ -1,3 +1,5 @@
+.mode columns
+.headers on
 PRAGMA foreign_keys=OFF;
 
 DROP TABLE IF EXISTS Person;
@@ -43,7 +45,7 @@ CREATE TABLE Match (
     matchId INT  NOT NULL PRIMARY KEY,
     startTime DATE,
     duration  DATE,
-    endTime DATE CONSTRAINT endTime = startTime + duration ,
+    endTime DATE CHECK(endTime = startTime + duration) ,
     gameId INT   REFERENCES Game(gameId),
     addressId INT  REFERENCES  Address(addressId)
 
@@ -67,11 +69,11 @@ CREATE TABLE Participation(
     matchId INT  REFERENCES Match(matchId)
 );
 
-DROP TABLE IF EXISTS WorkedTime
+DROP TABLE IF EXISTS WorkedTime;
 CREATE TABLE WorkedTime(
     person INT NOT NULL  REFERENCES Person(NIF),
     match INT NOT NULL   REFERENCES Match(matchId),
-    workedTime INT CONSTRAINT workedTime >= 0
+    workedTime INT CHECK (workedTime >= 0),
     PRIMARY KEY (person, match)
 );
 
