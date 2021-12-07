@@ -2,8 +2,29 @@
 .headers on
 PRAGMA foreign_keys=OFF;
 
-DROP TABLE IF EXISTS Person;
-CREATE TABLE Person(
+DROP TABLE IF EXISTS PersonFan;
+CREATE TABLE PersonFan(
+    NIF INT NOT NULL PRIMARY KEY,
+    phoneNumber INT,
+    emailAddress TEXT,
+    nationality TEXT NOT NULL,
+    name TEXT NOT NULL,
+    address INT  REFERENCES Address(addressId)
+);
+
+DROP TABLE IF EXISTS PersonPlayer;
+CREATE TABLE PersonPlayer(
+    NIF INT NOT NULL PRIMARY KEY,
+    phoneNumber INT,
+    emailAddress TEXT,
+    nationality TEXT NOT NULL,
+    name TEXT NOT NULL,
+    address INT  REFERENCES Address(addressId),
+    team INT  REFERENCES Team(teamId)
+);
+
+DROP TABLE IF EXISTS PersonStaff;
+CREATE TABLE PersonStaff(
     NIF INT NOT NULL PRIMARY KEY,
     phoneNumber INT,
     emailAddress TEXT,
@@ -11,8 +32,7 @@ CREATE TABLE Person(
     name TEXT NOT NULL,
     totalWorkedHours INT,
     address INT  REFERENCES Address(addressId),
-    staffType TEXT  REFERENCES StaffType(name),
-    team INT  REFERENCES Team(teamId)
+    staffType TEXT  REFERENCES StaffType(name)
 );
 
 DROP TABLE IF EXISTS Address;
