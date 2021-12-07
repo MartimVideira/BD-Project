@@ -1,5 +1,8 @@
 ##Projeto de BD
 
+-Mariana Azevedo
+-Martim Videira
+-David Fang
 
 Vamos criar uma Base de Dados para guardar informações acerca da
 organização/gestão de campeonatos ou eventos de jogos (iremos usar
