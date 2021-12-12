@@ -1,7 +1,6 @@
 PRAGMA foreign_keys=ON;
 
 
-
 -- Address 
 INSERT INTO Address(country, city, zipCode) VALUES 
         ('Portugal','Lisbon','0000-000'),
@@ -30,7 +29,6 @@ INSERT INTO  Fan VALUES
         (000000004, 900000003,'004@fan.com','PT','Pedro',4),
         (000000005, 900000005,'005@fan.com','PT','Rui',5);
 
-
 -- StaffType
 INSERT INTO StaffType VALUES 
         ('Hoster',4.20),
@@ -38,8 +36,6 @@ INSERT INTO StaffType VALUES
         ('Event manager',6.66),
         ('Tournament admin',4.3),
         ('Partnerships manager',9.0);
-
-
 
 -- Game
 INSERT INTO Game('Gname','typeOfGame') VALUES 
@@ -67,8 +63,6 @@ INSERT INTO Staff(NIF,phoneNumber,emailAddress,nationality,name,address,staffTyp
         (100000006, 900000006,'006@staff.com','PT','Lemos Magalhaes',15,'Analyst'),
         (100000007, 900000007,'007@staff.com','BR','Gustavo Lima',10,'Partnerships manager');
         
-
-
 -- Team
 INSERT INTO Team(Tname,email) VALUES
         ('T1','t1@team.com'),
@@ -93,7 +87,6 @@ INSERT INTO Classification(prize) VALUES
         ('Cash (100€)'),
         ('No Prize');
 
-
 -- Participation
 INSERT INTO Participation VALUES 
         (1,1,1),(1,2,4),(1,3,3),(1,4,5),(1,5,2),
@@ -102,7 +95,6 @@ INSERT INTO Participation VALUES
         (4,1,4),(4,2,2),(4,3,4),(4,4,1),(4,5,5),
         (5,1,5),(5,2,3),(5,3,2),(5,4,4),(5,5,1);
 
-
 -- WorkedTime
 INSERT INTO WorkedInMatch VALUES
         (100000001, 1, 8), (100000001, 2, 4), (100000001, 3, 8), (100000001, 4, 8), (100000001, 5, 0),
@@ -110,6 +102,7 @@ INSERT INTO WorkedInMatch VALUES
         (100000003, 1, 8), (100000003, 2, 4), (100000003, 3, 5), (100000003, 4, 0), (100000003, 5, 5),
         (100000004, 1, 5), (100000004, 2, 2), (100000004, 3, 5), (100000004, 4, 2), (100000004, 5, 3),
         (100000005, 1, 2), (100000005, 2, 6), (100000005, 3, 7), (100000005, 4, 4), (100000005, 5, 5);
+
 -- GameFan
 INSERT INTO GameFan VALUES
         (000000001, 4),
@@ -118,6 +111,7 @@ INSERT INTO GameFan VALUES
         (000000004, 2),
         (000000001, 2),
         (000000005, 4);
+
 -- TeamFan
 INSERT INTO TeamFan VALUES
         (000000001, 3),

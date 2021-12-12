@@ -39,9 +39,9 @@ CREATE TABLE Staff(
 DROP TABLE IF EXISTS Address;
 CREATE TABLE Address(
     addressId INTEGER PRIMARY KEY AUTOINCREMENT,
-    country TEXT,
-    city TEXT,
-    zipCode TEXT
+    country TEXT NOT NULL,
+    city TEXT NOT NULL,
+    zipCode TEXT NOT NULL
 );
 
 
