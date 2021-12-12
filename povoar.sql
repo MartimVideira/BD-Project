@@ -53,11 +53,11 @@ insert into Match(startTime,duration,gameId,addressId) values ('09:50','00:30',4
 insert into Match(startTime,duration,gameId,addressId) values ('10:30','00:40',5,17);
 
 //Staff confirmed
-insert into PersonStaff values (100000001, 900000000,'001@staff.com','PT','Martim',11,1);
-insert into PersonStaff values (100000002, 900000001,'002@staff.com','PT','Hugo',12,2);
-insert into PersonStaff values (100000003, 900000002,'003@staff.com','PT','Pedro',13,3);
-insert into PersonStaff values (100000004, 900000003,'004@staff.com','PT','Sara',14,4);
-insert into PersonStaff values (100000005, 900000005,'005@staff.com','PT','Afonso',15,5);
+insert into Staff values (100000001, 900000000,'001@staff.com','PT','Martim',11,1);
+insert into Staff values (100000002, 900000001,'002@staff.com','PT','Hugo',12,2);
+insert into Staff values (100000003, 900000002,'003@staff.com','PT','Pedro',13,3);
+insert into Staff values (100000004, 900000003,'004@staff.com','PT','Sara',14,4);
+insert into Staff values (100000005, 900000005,'005@staff.com','PT','Afonso',15,5);
 
 //Team confirmed
 insert into Team(Tname,email) values('T1','t1@team.com');
