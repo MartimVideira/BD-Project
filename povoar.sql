@@ -1,4 +1,4 @@
-//fan address confirmed
+--fan address confirmed
 insert into Address(country, city, zipCode) values 
         ('Portugal','Lisbon','0000-000'),
         ('France','Paris','12345'),
@@ -6,7 +6,7 @@ insert into Address(country, city, zipCode) values
         ('Canada','Ottawa','A1A 1A1'),
         ('Portugal','Porto','0000-001');
 
-// Fan confirmed
+-- Fan confirmed
 insert into  Fan values 
         (000000001, 900000000,'001@fan.com','PT','Mariana',1);
         (000000002, 900000001,'002@fan.com','PT','Igor',2),
@@ -14,7 +14,7 @@ insert into  Fan values
         (000000004, 900000003,'004@fan.com','PT','Pedro',4),
         (000000005, 900000005,'005@fan.com','PT','Rui',5);
 
-//player address confirmed
+--player address confirmed
 insert into Address(country, city, zipCode) values 
         ('UK','London','AA1'),
         ('Egypt','Cairo','00000'),
@@ -22,7 +22,7 @@ insert into Address(country, city, zipCode) values
         ('Indonesia','Jakarta','22222'),
         ('Mozambique','Maputo','1100');
 
-//staff address confirmed
+--staff address confirmed
 insert into Address(country, city, zipCode) values 
         ('Portugal','Braga','0000-002'),
         ('Portugal','Porto','0000-003'),
@@ -30,7 +30,7 @@ insert into Address(country, city, zipCode) values
         ('Portugal','Faro','0000-005'),
         ('Portugal','Lisbon','0000-006');
 
-//staffType confirmed
+--staffType confirmed
 insert into StaffType values 
         ('Hoster',0),
         ('Analyst',0),
@@ -38,13 +38,13 @@ insert into StaffType values
         ('Tournament admin',0),
         ('Partnerships manager',0);
 
-//Match address confirmed
+--Match address confirmed
 insert into Address values 
         ('Portugal','Lisbon','0000-007');
         ('Portugal','Lisbon','0000-008');
 
 
-//Game confirmed
+--Game confirmed
 insert into Game('Gname','typeOfGame') values 
         ('Chess','Abstract Strategy'),
         ('Tic Tac Toe','Paper-and-pencil'),
@@ -52,7 +52,7 @@ insert into Game('Gname','typeOfGame') values
         ('Minesweeper','Minesweeper'),
         ('League Of Legends','MOBA');
 
-//Match
+--Match
 insert into Match(startTime,duration,gameId,addressId) values 
         ('08:00','00:30',1,16),
         ('08:40','00:05',2,16),
@@ -60,7 +60,7 @@ insert into Match(startTime,duration,gameId,addressId) values
         ('09:50','00:30',4,17),
         ('10:30','00:40',5,17);
 
-//Staff confirmed
+--Staff confirmed
 insert into Staff values 
         (100000001, 900000000,'001@staff.com','PT','Martim',11,1),
         (100000002, 900000001,'002@staff.com','PT','Hugo',12,2),
@@ -68,7 +68,7 @@ insert into Staff values
         (100000004, 900000003,'004@staff.com','PT','Sara',14,4),
         (100000005, 900000005,'005@staff.com','PT','Afonso',15,5);
 
-//Team confirmed
+--Team confirmed
 insert into Team(Tname,email) values
         ('T1','t1@team.com'),
         ('T2','t2@team.com'),
@@ -76,7 +76,7 @@ insert into Team(Tname,email) values
         ('T4','t4@team.com'),
         ('T5','t5@team.com');
 
-//Player confirmed
+--Player confirmed
 insert into Player values 
         (200000001, 900000006,'001@player.com','PT','Mario',6,1),
         (200000002, 900000007,'002@player.com','PT','David',7,2),
@@ -84,7 +84,7 @@ insert into Player values
         (200000004, 900000009,'004@player.com','PT','Miguel',9,4),
         (200000005, 900000010,'005@player.com','PT','Nuno',10,5);
 
-//Participation
+--Participation
 insert into Participation values 
 (1,1,1),(1,2,4),(1,3,3),(1,4,5),(1,5,2),
 (2,1,2),(2,2,5),(2,3,1),(2,4,3),(2,5,4),
@@ -92,7 +92,7 @@ insert into Participation values
 (4,1,4),(4,2,2),(4,3,4),(4,4,1),(4,5,5),
 (5,1,5),(5,2,3),(5,3,2),(5,4,4),(5,5,1);
 
-//Classification
+--Classification
 insert into Classification(prize) values 
         ('Golden Trophy + Cash (1000€)'),
         ('Silver Trophy + Cash (500€)'),
@@ -101,21 +101,21 @@ insert into Classification(prize) values
         ('No Prize');
 
 
-//WorkedTime
+--WorkedTime
 insert into WorkedTime values
         (100000001, 1, 8),(100000001, 2, 4),(100000001, 3, 8),(100000001, 4, 8),(100000001, 5, 0),
         (100000002, 1, 3), (100000002, 2, 4),(100000002, 3, 5),(100000002, 4, 5),(100000002, 5, 3),
         (100000003, 1, 8), (100000003, 2, 4), (100000003, 3, 5), (100000003, 4, 0), (100000003, 5, 5),
         (100000004, 1, 5), (100000004, 2, 2), (100000004, 3, 5), (100000004, 4, 2), (100000004, 5, 3),
         (100000005, 1, 2), (100000005, 2, 6), (100000005, 3, 7), (100000005, 4, 4), (100000005, 5, 5);
-//GameFan
+--GameFan
 insert into GameFan values
         (000000001, 4),
         (000000002, 1),
         (000000003, 5),
         (000000004, 2),
         (000000005, 4);
-//TeamFan
+--TeamFan
 insert into TeamFan values
         (000000001, 3),
         (000000002, 5),
