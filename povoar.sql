@@ -46,11 +46,11 @@ insert into Game('Gname','typeOfGame') values ('Minesweeper','Minesweeper');
 insert into Game('Gname','typeOfGame') values ('League Of Legends','MOBA');
 
 //Match
-insert into Match(startTime,duration,gameId,addressId) values ('08:00','00:30',1,16);
-insert into Match(startTime,duration,gameId,addressId) values ('08:40','00:05',2,16);
-insert into Match(startTime,duration,gameId,addressId) values ('08:45','01:00',3,17);
-insert into Match(startTime,duration,gameId,addressId) values ('09:50','00:30',4,17);
-insert into Match(startTime,duration,gameId,addressId) values ('10:30','00:40',5,17);
+insert into Match(startTime,duration,gameId,addressId) values ('2021-12-01','2 days',1,16);
+insert into Match(startTime,duration,gameId,addressId) values ('2021-12-03','1 day',2,16);
+insert into Match(startTime,duration,gameId,addressId) values ('2021-12-04','1 day',3,17);
+insert into Match(startTime,duration,gameId,addressId) values ('2021-12-05','1 day',4,17);
+insert into Match(startTime,duration,gameId,addressId) values ('2021-12-06','3 days',5,17);
 
 //Staff confirmed
 insert into Staff values (100000001, 900000000,'001@staff.com','PT','Martim',11,1);
@@ -74,9 +74,28 @@ insert into Player values (200000004, 900000009,'004@player.com','PT','Miguel',9
 insert into Player values (200000005, 900000010,'005@player.com','PT','Nuno',10,5);
 
 //Participation
+insert into Participation values 
+(1,1,1),(1,2,4),(1,3,3),(1,4,5),(1,5,2),
+(2,1,2),(2,2,5),(2,3,1),(2,4,3),(2,5,4),
+(3,1,3),(3,2,1),(3,3,5),(3,4,2),(3,5,3),
+(4,1,4),(4,2,2),(4,3,4),(4,4,1),(4,5,5),
+(5,1,5),(5,2,3),(5,3,2),(5,4,4),(5,5,1);
+
+//Classification
+insert into Classification(prize) values ('Golden Trophy + Cash (1000€)'),
+('Silver Trophy + Cash (500€)'),
+('Bronze Trophy + Cash (250€)'),
+('Cash (100€)'),
+('No Prize');
+
 
 //WorkedTime
-
+insert into WorkedTime values
+(100000001,1,),
+(100000002,2,),
+(100000003,3,),
+(100000004,4,),
+(100000005,5,);
 //GameFan
 
 //TeamFan

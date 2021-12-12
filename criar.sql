@@ -65,9 +65,9 @@ CREATE TABLE Team(
 DROP TABLE IF EXISTS Match;
 CREATE TABLE Match (
     matchId INTEGER PRIMARY KEY AUTOINCREMENT,
-    startTime TIME,
-    duration TIME,
-    endTime TIME AS DATEADD(startTime + duration) ,
+    startTime DATE,
+    duration DATE,
+    endTime DATE AS (startTime + duration) ,
     gameId INTEGER REFERENCES Game(gameId),
     addressId INTEGER  REFERENCES  Address(addressId)
 
@@ -86,11 +86,17 @@ CREATE TABLE Game(
 
 DROP TABLE IF EXISTS Participation;
 CREATE TABLE Participation(
-    prize FLOAT DEFAULT 0.0,
-    classification TEXT,
     teamId INT  REFERENCES Team(teamId), 
-    matchId INT  REFERENCES Match(matchId)
+    matchId INT  REFERENCES Match(matchId),
+    classification INT REFERENCES Classification(classification),
 );
+
+DROP TABLE IF EXISTS Classification;
+CREATE TABLE Classification(
+    classification INTEGER PRIMARY KEY AUTOINCREMENT,
+    prize TEXT
+);
+
 
 DROP TABLE IF EXISTS WorkedTime;
 CREATE TABLE WorkedTime(
