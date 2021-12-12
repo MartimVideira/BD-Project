@@ -11,3 +11,4 @@ Um campeonato é composto por várias partidas, das quais interessa saber a hora
 Cada partida é de um só jogo, do qual é preciso saber o nome e tipo de jogo. Existem várias equipas, das quais importa saber o nome e e-mail. Cada equipa pode participar em várias partidas, sendo então guardada a sua classificação e recompensa. 
 Existem várias pessoas envolvidas no campeonato, e de cada uma é necessário guardar o NIF, nome, número de telemóvel, email, local onde vive e nacionalidade. Depois cada pessoa pode ser uma ou mais de várias coisas: jogador, fã ou staff. Dos jogadores é preciso guardar a qual equipa pertencem, dos fãs de quais equipas e jogos são fãs, e de cada staff em que partidas trabalha, total de horas de trabalho e que tipo de staff é. Cada tipo de staff recebe um pagamento á hora diferente. Também é preciso registar o número de horas que cada staff trabalha em cada partida.
 
+![UML Model](/finalUML.jpg)
