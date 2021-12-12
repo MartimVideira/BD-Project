@@ -81,11 +81,6 @@ CREATE TABLE Game(
 
 DROP TABLE IF EXISTS Participation;
 CREATE TABLE Participation(
-<<<<<<< HEAD
-    teamId INT  REFERENCES Team(teamId), 
-    matchId INT  REFERENCES Match(matchId),
-    classification INT REFERENCES Classification(classification),
-=======
     teamId INTEGER  REFERENCES Team(teamId),
     matchId INTEGER  REFERENCES Match(matchId),
     classification INTEGER REFERENCES Classification(classification)
@@ -95,7 +90,6 @@ DROP TABLE IF EXISTS Classification;
 CREATE TABLE Classification(
     classification INTEGER PRIMARY KEY AUTOINCREMENT,
     prize TEXT DEFAULT "No Prize"
->>>>>>> 283e0d6151361b74df88dfb9fc64cc3222fd8dc3
 );
 
 DROP TABLE IF EXISTS WorkedInMatch;
