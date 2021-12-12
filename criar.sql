@@ -30,14 +30,17 @@ CREATE TABLE PersonStaff(
     emailAddress TEXT,
     nationality TEXT NOT NULL,
     name TEXT NOT NULL,
-    totalWorkedHours INT,
+    totalWorkedHours  INT
+    SELECT SUM(workedTime)
+    FROM WorkedTime
+    WHERE person = NIF,
     address INT  REFERENCES Address(addressId),
-    staffType TEXT  REFERENCES StaffType(name)
+    staffType TEXT  REFERENCES StaffType(STname)
 );
 
 DROP TABLE IF EXISTS Address;
 CREATE TABLE Address(
-    addressId,
+    addressId AUTOINCREMENT,
     country TEXT,
     city TEXT,
     zipCode TEXT
@@ -45,15 +48,14 @@ CREATE TABLE Address(
 
 DROP TABLE IF EXISTS StaffType;
 CREATE TABLE StaffType(
-    name TEXT NOT NULL PRIMARY KEY,
+    STname TEXT NOT NULL PRIMARY KEY,
     costPerHour INT
 );
 
 DROP TABLE IF EXISTS Team;
 CREATE TABLE Team(
-    teamId INT NOT NULL PRIMARY KEY, 
-    name TEXT NOT NULL,
-    country TEXT,
+    teamId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
+    Tname TEXT NOT NULL,
     email TEXT NOT NULL
 );
 
@@ -62,12 +64,12 @@ CREATE TABLE Team(
 
 DROP TABLE IF EXISTS Match;
 CREATE TABLE Match (
-    matchId INT  NOT NULL PRIMARY KEY,
-    startTime DATE,
-    duration  DATE,
-    endTime DATE CHECK(endTime = startTime + duration) ,
-    gameId INT   REFERENCES Game(gameId),
-    addressId INT  REFERENCES  Address(addressId)
+    matchId INTEGER PRIMARY KEY AUTOINCREMENT,
+    startTime TIME,
+    duration TIME,
+    endTime TIME AS DATEADD(startTime + duration) ,
+    gameId INTEGER REFERENCES Game(gameId),
+    addressId INTEGER  REFERENCES  Address(addressId)
 
 );
 
@@ -75,8 +77,8 @@ CREATE TABLE Match (
 
 DROP TABLE IF EXISTS Game ;
 CREATE TABLE Game(
-    gameId INT NOT NULL PRIMARY KEY ,
-    name TEXT NOT NULL,
+    gameId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    Gname TEXT NOT NULL,
     typeOfGame TEXT 
 );
 
