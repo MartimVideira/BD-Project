@@ -9,6 +9,7 @@ CREATE TABLE Fan(
     address INTEGER REFERENCES Address(addressId)
 );
 
+
 DROP TABLE IF EXISTS Player;
 CREATE TABLE Player(
     NIF INT PRIMARY KEY,
@@ -19,6 +20,7 @@ CREATE TABLE Player(
     address INTEGER  REFERENCES Address(addressId),
     team INTEGER  REFERENCES Team(teamId)
 );
+
 
 DROP TABLE IF EXISTS Staff;
 CREATE TABLE Staff(
@@ -33,6 +35,7 @@ CREATE TABLE Staff(
     CONSTRAINT noNegativeHours CHECK (totalWorkedHours >=0)
 );
 
+
 DROP TABLE IF EXISTS Address;
 CREATE TABLE Address(
     addressId INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -40,6 +43,7 @@ CREATE TABLE Address(
     city TEXT,
     zipCode TEXT
 );
+
 
 DROP TABLE IF EXISTS StaffType;
 CREATE TABLE StaffType(
@@ -63,14 +67,13 @@ CREATE TABLE Match (
     endTime DATE DEFAULT NULL,
     gameId INTEGER REFERENCES Game(gameId),
     addressId INTEGER  REFERENCES  Address(addressId)
-
-
 );
 --Trigger: derived attribute endtime is startime + duration  
 
+
 DROP TABLE IF EXISTS Game;
 CREATE TABLE Game(
-    gameId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    gameId INTEGER  PRIMARY KEY AUTOINCREMENT,
     Gname TEXT NOT NULL,
     typeOfGame TEXT 
 );
@@ -80,7 +83,8 @@ DROP TABLE IF EXISTS Participation;
 CREATE TABLE Participation(
     teamId INTEGER  REFERENCES Team(teamId),
     matchId INTEGER  REFERENCES Match(matchId),
-    classification INTEGER REFERENCES Classification(classification)
+    classification INTEGER REFERENCES Classification(classification),
+    PRIMARY KEY (TeamId,matchId)
 );
 
 DROP TABLE IF EXISTS Classification;
@@ -88,6 +92,7 @@ CREATE TABLE Classification(
     classification INTEGER PRIMARY KEY AUTOINCREMENT,
     prize TEXT DEFAULT "No Prize"
 );
+
 
 DROP TABLE IF EXISTS WorkedInMatch;
 CREATE TABLE WorkedInMatch(
@@ -98,6 +103,7 @@ CREATE TABLE WorkedInMatch(
     CONSTRAINT noNegativeHours CHECK (workedTime >=0)
 );
 --Trigger to increment total workedhours after each match this staff member works on
+
 
 DROP TABLE IF EXISTS GameFan;
 CREATE TABLE GameFan(
