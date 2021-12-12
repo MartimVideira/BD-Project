@@ -64,21 +64,13 @@ CREATE TABLE Team(
 
 DROP TABLE IF EXISTS Match;
 CREATE TABLE Match (
-<<<<<<< HEAD
     matchId INTEGER PRIMARY KEY AUTOINCREMENT,
     startTime TIME,
     duration TIME,
     endTime TIME AS DATEADD(startTime + duration) ,
     gameId INTEGER REFERENCES Game(gameId),
     addressId INTEGER  REFERENCES  Address(addressId)
-=======
-    matchId INT  NOT NULL PRIMARY KEY,
-    startTime DATE,
-    duration  DATE,
-    endTime DATE CHECK (endTime = startTime + duration),
-    gameId INT   REFERENCES Game(gameId),
-    addressId INT  REFERENCES  Address(addressId)
->>>>>>> fb154cc226bafb72f3b2f17c13a2dfa2a4223004
+
 
 );
 
@@ -104,11 +96,7 @@ DROP TABLE IF EXISTS WorkedTime;
 CREATE TABLE WorkedTime(
     person INT NOT NULL  REFERENCES Person(NIF),
     match INT NOT NULL   REFERENCES Match(matchId),
-<<<<<<< HEAD
     workedTime INT CHECK (workedTime >= 0),
-=======
-    workedTime INT CHECK  (workedTime >= 0),
->>>>>>> fb154cc226bafb72f3b2f17c13a2dfa2a4223004
     PRIMARY KEY (person, match)
 );
 
