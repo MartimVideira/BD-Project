@@ -40,9 +40,10 @@ CREATE TABLE Team(
 
 DROP TABLE IF EXISTS Match;
 CREATE TABLE Match (
-    matchId INT  NOT NULL PRIMARY KEY,
+    matchId INT PRIMARY KEY,
     startTime DATE,
     duration  DATE,
+    --MULTIple atribute check cannot be inline
     endTime DATE CHECK (endTime = startTime + duration),
     gameId INT   REFERENCES Game(gameId),
     addressId INT  REFERENCES  Address(addressId)
