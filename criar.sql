@@ -1,12 +1,9 @@
-.mode columns
-.headers on
-PRAGMA foreign_keys=OFF;
 
 DROP TABLE IF EXISTS Fan;
 CREATE TABLE Fan(
     NIF INT PRIMARY KEY,
-    phoneNumber INT,
-    emailAddress TEXT NOT NULL,
+    phoneNumber INT UNIQUE,
+    emailAddress TEXT NOT NULL UNIQUE,
     nationality TEXT,
     name TEXT NOT NULL,
     address INTEGER REFERENCES Address(addressId)
@@ -15,8 +12,8 @@ CREATE TABLE Fan(
 DROP TABLE IF EXISTS Player;
 CREATE TABLE Player(
     NIF INT PRIMARY KEY,
-    phoneNumber INT,
-    emailAddress TEXT NOT NULL,
+    phoneNumber INT UNIQUE,
+    emailAddress TEXT NOT NULL UNIQUE,
     nationality TEXT,
     name TEXT NOT NULL,
     address INTEGER  REFERENCES Address(addressId),
@@ -26,8 +23,8 @@ CREATE TABLE Player(
 DROP TABLE IF EXISTS Staff;
 CREATE TABLE Staff(
     NIF INT  PRIMARY KEY,
-    phoneNumber INT,
-    emailAddress TEXT NOT NULL,
+    phoneNumber INT UNIQUE,
+    emailAddress TEXT NOT NULL UNIQUE,
     nationality TEXT,
     name TEXT NOT NULL,
     totalWorkedHours  INT  DEFAULT 0,
@@ -98,7 +95,7 @@ CREATE TABLE WorkedInMatch(
     match INTEGER   REFERENCES Match(matchId),
     workedTime INT ,
     PRIMARY KEY (staff, match),
-    CONSTRAINT noNegativeHours CHECK (workedTime <=0)
+    CONSTRAINT noNegativeHours CHECK (workedTime >=0)
 );
 --Trigger to increment total workedhours after each match this staff member works on
 

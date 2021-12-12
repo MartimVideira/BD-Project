@@ -1,47 +1,41 @@
+PRAGMA foreign_keys=ON;
 --fan address confirmed
 insert into Address(country, city, zipCode) values 
         ('Portugal','Lisbon','0000-000'),
         ('France','Paris','12345'),
         ('Australia','Camberra','1234'),
         ('Canada','Ottawa','A1A 1A1'),
-        ('Portugal','Porto','0000-001');
+        ('Portugal','Porto','0000-001'),
+        ('UK','London','AA1'),
+        ('Egypt','Cairo','00000'),
+        ('Finland','Helsinki','11111'),
+        ('Indonesia','Jakarta','22222'),
+        ('Mozambique','Maputo','1100'),        
+        ('Portugal','Braga','0000-002'),
+        ('Portugal','Porto','0000-003'),
+        ('Portugal','Aveiro','0000-004'),
+        ('Portugal','Faro','0000-005'),
+        ('Portugal','Lisbon','0000-006'), 
+        ('Portugal','Lisbon','0000-007'),
+        ('Portugal','Lisbon','0000-008');
 
 -- Fan confirmed
 insert into  Fan values 
-        (000000001, 900000000,'001@fan.com','PT','Mariana',1);
+        (000000001, 900000000,'001@fan.com','PT','Mariana',1),
         (000000002, 900000001,'002@fan.com','PT','Igor',2),
         (000000003, 900000002,'003@fan.com','PT','Joao',3),
         (000000004, 900000003,'004@fan.com','PT','Pedro',4),
         (000000005, 900000005,'005@fan.com','PT','Rui',5);
 
---player address confirmed
-insert into Address(country, city, zipCode) values 
-        ('UK','London','AA1'),
-        ('Egypt','Cairo','00000'),
-        ('Finland','Helsinki','11111'),
-        ('Indonesia','Jakarta','22222'),
-        ('Mozambique','Maputo','1100');
-
---staff address confirmed
-insert into Address(country, city, zipCode) values 
-        ('Portugal','Braga','0000-002'),
-        ('Portugal','Porto','0000-003'),
-        ('Portugal','Aveiro','0000-004'),
-        ('Portugal','Faro','0000-005'),
-        ('Portugal','Lisbon','0000-006');
 
 --staffType confirmed
 insert into StaffType values 
-        ('Hoster',0),
-        ('Analyst',0),
-        ('Event manager',0),
-        ('Tournament admin',0),
-        ('Partnerships manager',0);
+        ('Hoster',4.20),
+        ('Analyst',6.9),
+        ('Event manager',6.66),
+        ('Tournament admin',4.3),
+        ('Partnerships manager',9.0);
 
---Match address confirmed
-insert into Address values 
-        ('Portugal','Lisbon','0000-007');
-        ('Portugal','Lisbon','0000-008');
 
 
 --Game confirmed
@@ -61,12 +55,16 @@ insert into Match(startTime,duration,gameId,addressId) values
         ('10:30','00:40',5,17);
 
 --Staff confirmed
-insert into Staff values 
-        (100000001, 900000000,'001@staff.com','PT','Martim',11,1),
-        (100000002, 900000001,'002@staff.com','PT','Hugo',12,2),
-        (100000003, 900000002,'003@staff.com','PT','Pedro',13,3),
-        (100000004, 900000003,'004@staff.com','PT','Sara',14,4),
-        (100000005, 900000005,'005@staff.com','PT','Afonso',15,5);
+insert into Staff(NIF,phoneNumber,emailAddress,nationality,name,address,staffType)  values
+        (100000001, 900000000,'001@staff.com','PT','Martim',11,'Hoster'),
+        (100000002, 900000001,'002@staff.com','PT','Hugo',12,'Event manager'),
+        (100000003, 900000002,'003@staff.com','PT','Pedro',13,'Partnerships manager'),
+        (100000004, 900000003,'004@staff.com','PT','Sara',14,'Tournament admin'),
+        (100000005, 900000005,'005@staff.com','PT','Afonso Magalhaes',15,'Analyst'),
+        (100000006, 900000006,'006@staff.com','PT','Lemos Magalhaes',15,'Analyst'),
+        (100000007, 900000007,'007@staff.com','BR','Gustavo Lima',10,'Partnerships manager');
+        
+
 
 --Team confirmed
 insert into Team(Tname,email) values
@@ -84,14 +82,6 @@ insert into Player values
         (200000004, 900000009,'004@player.com','PT','Miguel',9,4),
         (200000005, 900000010,'005@player.com','PT','Nuno',10,5);
 
---Participation
-insert into Participation values 
-(1,1,1),(1,2,4),(1,3,3),(1,4,5),(1,5,2),
-(2,1,2),(2,2,5),(2,3,1),(2,4,3),(2,5,4),
-(3,1,3),(3,2,1),(3,3,5),(3,4,2),(3,5,3),
-(4,1,4),(4,2,2),(4,3,4),(4,4,1),(4,5,5),
-(5,1,5),(5,2,3),(5,3,2),(5,4,4),(5,5,1);
-
 --Classification
 insert into Classification(prize) values 
         ('Golden Trophy + Cash (1000€)'),
@@ -101,8 +91,17 @@ insert into Classification(prize) values
         ('No Prize');
 
 
+--Participation
+insert into Participation values 
+        (1,1,1),(1,2,4),(1,3,3),(1,4,5),(1,5,2),
+        (2,1,2),(2,2,5),(2,3,1),(2,4,3),(2,5,4),
+        (3,1,3),(3,2,1),(3,3,5),(3,4,2),(3,5,3),
+        (4,1,4),(4,2,2),(4,3,4),(4,4,1),(4,5,5),
+        (5,1,5),(5,2,3),(5,3,2),(5,4,4),(5,5,1);
+
+
 --WorkedTime
-insert into WorkedTime values
+insert into WorkedInMatch values
         (100000001, 1, 8),(100000001, 2, 4),(100000001, 3, 8),(100000001, 4, 8),(100000001, 5, 0),
         (100000002, 1, 3), (100000002, 2, 4),(100000002, 3, 5),(100000002, 4, 5),(100000002, 5, 3),
         (100000003, 1, 8), (100000003, 2, 4), (100000003, 3, 5), (100000003, 4, 0), (100000003, 5, 5),
