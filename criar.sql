@@ -2,8 +2,8 @@
 .headers on
 PRAGMA foreign_keys=OFF;
 
-DROP TABLE IF EXISTS PersonFan;
-CREATE TABLE PersonFan(
+DROP TABLE IF EXISTS Fan;
+CREATE TABLE Fan(
     NIF INT NOT NULL PRIMARY KEY,
     phoneNumber INT,
     emailAddress TEXT,
@@ -12,8 +12,8 @@ CREATE TABLE PersonFan(
     address INT  REFERENCES Address(addressId)
 );
 
-DROP TABLE IF EXISTS PersonPlayer;
-CREATE TABLE PersonPlayer(
+DROP TABLE IF EXISTS Player;
+CREATE TABLE Player(
     NIF INT NOT NULL PRIMARY KEY,
     phoneNumber INT,
     emailAddress TEXT,
@@ -23,8 +23,8 @@ CREATE TABLE PersonPlayer(
     team INT  REFERENCES Team(teamId)
 );
 
-DROP TABLE IF EXISTS PersonStaff;
-CREATE TABLE PersonStaff(
+DROP TABLE IF EXISTS Staff;
+CREATE TABLE Staff(
     NIF INT NOT NULL PRIMARY KEY,
     phoneNumber INT,
     emailAddress TEXT,

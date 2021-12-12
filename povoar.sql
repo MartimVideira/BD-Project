@@ -5,12 +5,12 @@ insert into Address(country, city, zipCode) values ('Australia','Camberra','1234
 insert into Address(country, city, zipCode) values ('Canada','Ottawa','A1A 1A1');
 insert into Address(country, city, zipCode) values ('Portugal','Porto','0000-001');
 
-//PersonFan confirmed
-insert into PersonFan values (000000001, 900000000,'001@fan.com','PT','Mariana',1);
-insert into PersonFan values (000000002, 900000001,'002@fan.com','PT','Igor',2);
-insert into PersonFan values (000000003, 900000002,'003@fan.com','PT','Joao',3);
-insert into PersonFan values (000000004, 900000003,'004@fan.com','PT','Pedro',4);
-insert into PersonFan values (000000005, 900000005,'005@fan.com','PT','Rui',5);
+// Fan confirmed
+insert into  Fan values (000000001, 900000000,'001@fan.com','PT','Mariana',1);
+insert into  Fan values (000000002, 900000001,'002@fan.com','PT','Igor',2);
+insert into  Fan values (000000003, 900000002,'003@fan.com','PT','Joao',3);
+insert into  Fan values (000000004, 900000003,'004@fan.com','PT','Pedro',4);
+insert into  Fan values (000000005, 900000005,'005@fan.com','PT','Rui',5);
 
 //player address confirmed
 insert into Address(country, city, zipCode) values ('UK','London','AA1');
@@ -66,12 +66,12 @@ insert into Team(Tname,email) values('T3','t3@team.com');
 insert into Team(Tname,email) values('T4','t4@team.com');
 insert into Team(Tname,email) values('T5','t5@team.com');
 
-//PersonPlayer confirmed
-insert into PersonPlayer values (200000001, 900000006,'001@player.com','PT','Mario',6,1);
-insert into PersonPlayer values (200000002, 900000007,'002@player.com','PT','David',7,2);
-insert into PersonPlayer values (200000003, 900000008,'003@player.com','PT','Lara',8,3);
-insert into PersonPlayer values (200000004, 900000009,'004@player.com','PT','Miguel',9,4);
-insert into PersonPlayer values (200000005, 900000010,'005@player.com','PT','Nuno',10,5);
+//Player confirmed
+insert into Player values (200000001, 900000006,'001@player.com','PT','Mario',6,1);
+insert into Player values (200000002, 900000007,'002@player.com','PT','David',7,2);
+insert into Player values (200000003, 900000008,'003@player.com','PT','Lara',8,3);
+insert into Player values (200000004, 900000009,'004@player.com','PT','Miguel',9,4);
+insert into Player values (200000005, 900000010,'005@player.com','PT','Nuno',10,5);
 
 //Participation
 
