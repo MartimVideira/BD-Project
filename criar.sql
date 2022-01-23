@@ -5,8 +5,8 @@ CREATE TABLE Fan(
     phoneNumber INT UNIQUE,
     emailAddress TEXT NOT NULL UNIQUE,
     nationality TEXT,
-    name TEXT NOT NULL,
-    address INTEGER REFERENCES Address(addressId)
+    NAME TEXT NOT NULL,
+    address INTEGER REFERENCES Address(addressId) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -16,9 +16,9 @@ CREATE TABLE Player(
     phoneNumber INT UNIQUE,
     emailAddress TEXT NOT NULL UNIQUE,
     nationality TEXT,
-    name TEXT NOT NULL,
-    address INTEGER  REFERENCES Address(addressId),
-    team INTEGER  REFERENCES Team(teamId)
+    NAME TEXT NOT NULL,
+    address INTEGER  REFERENCES Address(addressId) ON DELETE CASCADE ON UPDATE CASCADE,
+    team INTEGER  REFERENCES Team(teamId) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -28,10 +28,10 @@ CREATE TABLE Staff(
     phoneNumber INT UNIQUE,
     emailAddress TEXT NOT NULL UNIQUE,
     nationality TEXT,
-    name TEXT NOT NULL,
+    NAME TEXT NOT NULL,
     totalWorkedHours  INT  DEFAULT 0,
-    address INTEGER  REFERENCES Address(addressId),
-    staffType TEXT  REFERENCES StaffType(STname),
+    address INTEGER  REFERENCES Address(addressId) ON DELETE CASCADE ON UPDATE CASCADE,
+    staffType TEXT  REFERENCES StaffType(STname) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT noNegativeHours CHECK (totalWorkedHours >=0)
 );
 
@@ -59,16 +59,16 @@ CREATE TABLE Team(
 );
 
 
-DROP TABLE IF EXISTS Match;
-CREATE TABLE Match (
+DROP TABLE IF EXISTS MATCH;
+CREATE TABLE MATCH (
     matchId INTEGER PRIMARY KEY AUTOINCREMENT,
     startTime DATE,
     duration DATE,
     endTime DATE DEFAULT NULL,
-    gameId INTEGER REFERENCES Game(gameId),
-    addressId INTEGER  REFERENCES  Address(addressId)
+    gameId INTEGER REFERENCES Game(gameId) ON DELETE CASCADE ON UPDATE CASCADE,
+    addressId INTEGER  REFERENCES  Address(addressId) ON DELETE CASCADE ON UPDATE CASCADE
 );
---Trigger: derived attribute endtime is startime + duration  
+--Trigger: DERIVED ATTRIBUTE endtime IS startime + duration  
 
 
 DROP TABLE IF EXISTS Game;
@@ -81,9 +81,9 @@ CREATE TABLE Game(
 
 DROP TABLE IF EXISTS Participation;
 CREATE TABLE Participation(
-    teamId INTEGER  REFERENCES Team(teamId),
-    matchId INTEGER  REFERENCES Match(matchId),
-    classification INTEGER REFERENCES Classification(classification),
+    teamId INTEGER  REFERENCES Team(teamId) ON DELETE CASCADE ON UPDATE CASCADE,
+    matchId INTEGER  REFERENCES MATCH(MATCHID) ON DELETE CASCADE ON UPDATE CASCADE,
+    classification INTEGER REFERENCES Classification(classification) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY (TeamId,matchId)
 );
 
@@ -96,26 +96,26 @@ CREATE TABLE Classification(
 
 DROP TABLE IF EXISTS WorkedInMatch;
 CREATE TABLE WorkedInMatch(
-    staff INT  REFERENCES Staff(NIF),
-    match INTEGER   REFERENCES Match(matchId),
+    staff INT  REFERENCES Staff(NIF) ON DELETE CASCADE ON UPDATE CASCADE,
+    MATCH INTEGER   REFERENCES MATCH(MATCHID) ON DELETE CASCADE ON UPDATE CASCADE,
     workedTime INT ,
     PRIMARY KEY (staff, match),
     CONSTRAINT noNegativeHours CHECK (workedTime >=0)
 );
---Trigger to increment total workedhours after each match this staff member works on
+--Trigger TO INCREMENT total workedhours AFTER EACH MATCH this staff MEMBER works ON
 
 
 DROP TABLE IF EXISTS GameFan;
 CREATE TABLE GameFan(
-    fan INT   REFERENCES Fan(NIF),
-    game INTEGER  REFERENCES Game(gameId),
+    fan INT   REFERENCES Fan(NIF) ON DELETE CASCADE ON UPDATE CASCADE,
+    game INTEGER  REFERENCES Game(gameId) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY (fan,game)
 );
 
 
 DROP TABLE IF EXISTS TeamFan;
 CREATE TABLE TeamFan(
-    fan INT  REFERENCES Fan(NIF),
-    team INTEGER  REFERENCES Team(teamId),
+    fan INT  REFERENCES Fan(NIF) ON DELETE CASCADE ON UPDATE CASCADE,
+    team INTEGER  REFERENCES Team(teamId) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY (fan,team)
 );
