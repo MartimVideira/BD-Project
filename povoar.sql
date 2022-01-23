@@ -34,7 +34,7 @@ insert into Address(country, city, zipCode) values
 
 
 -- Fan
-insert into  Fan values 
+INSERT INTO  Fan VALUES 
         (000000001, 900000001,'001@fan.com','PT','Maria',1),
         (000000002, 900000002,'002@fan.com','FR','Jean',2),
         (000000003, 900000003,'003@fan.com','AU','Kayla',3),
@@ -76,9 +76,10 @@ insert into Game('Gname','typeOfGame') values
         ('Tic Tac Toe','Paper-and-pencil'),
         ('PAC-MAN','Action Maze Chase'),
         ('Minesweeper','Minesweeper'),
-        ('League of Legends','MOBA'),
+        ('League Of Legends','MOBA'),
         ('Connect Four', "Board Game"),
         ('Pokémon Unite', 'MOBA');
+
 
 
 -- match
@@ -91,12 +92,12 @@ insert into match(starttime,duration,gameid,addressid) values
         ('08:00','00:20',6,15),
         ('08:40','01:00',5,15),
         ('09:50','00:30',3,15),
-        ('10:30','00:40',7,15);
-
+        ('10:30','00:40',7,15),
+        ('12:00','00:30',3,16);
         
 
 -- Staff
-insert into Staff(NIF,phoneNumber,emailAddress,nationality,name,address,staffType)  values
+INSERT INTO Staff(NIF,phoneNumber,emailAddress,nationality,name,address,staffType)  VALUES
         (100000001, 900000021,'001@staff.com','PT','Francisca',1,'Hoster'),
         (100000002, 900000022,'002@staff.com','FR','Céline',9,'Event manager'),
         (100000003, 900000023,'003@staff.com','FR','Jacques',9,'Food provider'),
@@ -115,7 +116,7 @@ insert into Staff(NIF,phoneNumber,emailAddress,nationality,name,address,staffTyp
 
         
 -- Team
-insert into Team(Tname,email) values
+INSERT INTO Team(Tname,email) VALUES
         ('T1','t1@team.com'),  
         ('T2','t2@team.com'),  
         ('T3','t3@team.com'),  
@@ -130,7 +131,7 @@ insert into Team(Tname,email) values
 
 
 -- Player
-insert into Player values 
+INSERT INTO Player VALUES 
         (200000001, 900000041,'001@player.com','PT','Mário',1,2),
         (200000002, 900000042,'002@player.com','PT','David',5,1),
         (200000003, 900000043,'003@player.com','PT','Martim',5,1),
@@ -139,10 +140,10 @@ insert into Player values
         (200000006, 900000046,'006@player.com','FR','Marie',2,4),
         (200000007, 900000047,'007@player.com','FR','Leo',2,2),
         (200000008, 900000048,'008@player.com','AU','Kyle',3,5),
-        (200000009, 900000049,'009@player.com','CA','Karen',25,9)
+        (200000009, 900000049,'009@player.com','CA','Karen',25,9),
         (200000010, 900000050,'010@player.com','CA','Anthony',25,9),
         (200000011, 900000051,'011@player.com','JP','Kaito',16,3),
-        (200000012, 900000051,'012@player.com','JP','Kenji',16,3),
+        (200000012, 900000052,'012@player.com','JP','Kenji',16,3),
         (200000013, 900000053,'0013@player.com','JP','Yui',16,3),
         (200000014, 900000054,'014@player.com','UK','Charlotte',26,10),
         (200000015, 900000055,'015@player.com','UK','Charles',26,10),
@@ -174,22 +175,23 @@ insert into Classification(prize) values
         ('No Prize');
 
 -- Participation
-insert into Participation values 
+INSERT INTO Participation VALUES 
         (1,1, 1), (2,1,2), (3,1,3), (4,1,4), (5,1,5),
-        (10,2, 1), (9,2,2), (8,2,3), (7,2,4), (6,2,5),
+        (10,2,1), (9,2,2), (8,2,3), (7,2,4), (6,2,5),
         (2,3, 1), (5,3,2), (9,3,3), (6,3,4), (3,3,5),
         (8,4, 1), (2,4,2), (7,4,3), (10,4,4), (4,4,5),
         (4,5, 1), (8,5,2), (2,5,3), (10,5,4), (7,5,5),
-        (1,6, 1), (10,6,2), (4,6,3), (7,6,4), (10,6,5),
+        (1,6, 1), (10,6,2), (4,6,3), (7,6,4), (9,6,5),
         (5,7, 1), (2,7,2), (1,7,3), (4,7,4), (10,7,5),
-        (9,8, 1), (6,8,2), (7,8,3), (3,8,4), (9,8,5),
-        (1,9, 1), (3,9,2), (5,9,3), (9,9,4), (1,9,5);
+        (9,8, 1), (6,8,2), (7,8,3), (3,8,4), (1,8,5),
+        (1,9, 1), (3,9,2), (5,9,3), (9,9,4), (2,9,5),
+        (5,10,1), (1,10,2),(2,10,3),(3,10,4),(10,10,5);
 
 -- WorkedTime
-insert into WorkedInMatch values
+INSERT INTO WorkedInMatch VALUES
         (100000001, 1, 3), (100000001, 2, 3), (100000001, 3, 2), (100000001, 4, 3), (100000001, 5, 2),
         (100000002, 1, 1), (100000002, 2, 2), (100000002, 3, 1), (100000002, 4, 2), (100000002, 5, 2),
-        (100000002, 6, 1), (100000007, 7, 2), (100000002, 8, 1), (100000002, 9, 1),
+        (100000002, 6, 1), (100000002, 7, 2), (100000002, 8, 1), (100000002, 9, 1),
         (100000003, 1, 1.5), (100000003, 2, 1.5), (100000003, 3, 1), (100000003, 4, 1), (100000003, 5, 0.5),
         (100000003, 6, 1), (100000003, 7, 1), (100000003, 8, 1), (100000003, 9, 1), (100000003, 10, 0.5),
         (100000004, 1, 1), (100000004, 2, 1), (100000004, 3, 1), (100000004, 4, 1), (100000004, 5, 1),
