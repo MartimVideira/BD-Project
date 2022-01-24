@@ -1,12 +1,12 @@
 .mode columns
 .headers on
-.nullvalue NULL
+.nullvalue null
 
 --gatilho1_verifica.sql - deve verificar que o tempo total de trabalho sem trigger é 0 para todos os staff
-Create view NIFAndTotalWorkedHours as 
+create view NIFAndTotalWorkedHours as 
 select NIF, totalWorkedHours as totalWorkedHoursWithoutTRIGGER from staff;
 
-Create view TestingStaff100000001 as 
+create view TestingStaff100000001 as 
 select * from NIFAndTotalWorkedHours where nif = 100000001;
 
 .print ''
@@ -86,7 +86,7 @@ select * from TestingStaff100000001;
 .print 'vamos inserir um novo tempo de trabalho a esse staff'
 .print ''
 
-INSERT INTO WorkedInMatch VALUES(100000001, 1, 3);
+insert into WorkedInMatch VALUES(100000001, 1, 3);
 
 .print ''
 .print 'tempo total do staff com NIF 100000001 = 13'
