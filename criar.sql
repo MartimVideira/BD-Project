@@ -61,9 +61,9 @@ Create Table Team(
 Drop Table If Exists Match;
 Create Table Match (
     matchId Integer Primary Key AUTOINCREMENT,
-    startTime Date,
-    duration Date,
-    endTime Date Default Null,
+    startTime Time,
+    duration Time,
+    endTime Time Default Null,
     gameId Integer References Game(gameId) On Delete Cascade On Update Cascade,
     addressId Integer  References  Address(addressId) On Delete Cascade On Update Cascade
 );
