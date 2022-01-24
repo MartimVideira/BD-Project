@@ -1,5 +1,5 @@
 --gatilho1_remove.sql - deve remover o gatilho1
 
-drop TRIGGER addTotalWorkedHours;
-drop TRIGGER updateTotalWorkedHours;
-drop TRIGGER removeTotalWorkedHours;
+DROP TRIGGER addTotalWorkedHours;
+DROP TRIGGER updateTotalWorkedHours;
+DROP TRIGGER removeTotalWorkedHours;

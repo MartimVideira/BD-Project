@@ -1,13 +1,13 @@
-.mode columns
-.headers on
-.nullvalue null
+.mode COLUMNS
+.headers ON
+.nullvalue NULL
 
---gatilho1_verifica.sql - deve verificar que o tempo total de trabalho sem trigger é 0 para todos os staff
-create view NIFAndTotalWorkedHours as 
-select NIF, totalWorkedHours as totalWorkedHoursWithoutTRIGGER from staff;
+--gatilho1_verifica.sql - deve verificar que o tempo total de trabalho sem TRIGGER é 0 para todos os staff
+CREATE VIEW NIFAndTotalWorkedHours AS 
+SELECT NIF, totalWorkedHours AS totalWorkedHoursWithoutTRIGGER FROM staff;
 
-create view TestingStaff100000001 as 
-select * from NIFAndTotalWorkedHours where nif = 100000001;
+CREATE VIEW TestingStaff100000001 AS 
+SELECT * FROM NIFAndTotalWorkedHours WHERE nif = 100000001;
 
 .print ''
 .print 'verificar INSERT'
@@ -17,7 +17,7 @@ select * from NIFAndTotalWorkedHours where nif = 100000001;
 
 .read criar.sql
 .read povoar.sql
-select * from NIFAndTotalWorkedHours;
+SELECT * FROM NIFAndTotalWorkedHours;
 
 .print ''
 .print 'depois de ter o trigger'
@@ -26,70 +26,70 @@ select * from NIFAndTotalWorkedHours;
 .read criar.sql
 .read gatilho1_adiciona.sql
 .read povoar.sql
-select * from NIFAndTotalWorkedHours;
+SELECT * FROM NIFAndTotalWorkedHours;
 
---select NIF, totalWorkedHours as totalWorkedHoursWithTRIGGER from staff;
+--select NIF, totalWorkedHours AS totalWorkedHoursWithTRIGGER FROM staff;
 
 .print ''
 .print 'verificar UPDATE'
 .print ''
-.print 'tempo total inicial do staff com NIF 100000001 = 13'
+.print 'tempo total inicial DO staff com NIF 100000001 = 13'
 .print ''
 
-select * from TestingStaff100000001;
+SELECT * FROM TestingStaff100000001;
 
 .print ''
-.print 'update no tempo de trabalho na partida 1 deste staff de 3 para 6'
+.print 'update NO tempo de trabalho na partida 1 deste staff de 3 para 6'
 .print ''
 
-update WorkedInMatch set workedtime = 6 where staff = 100000001 and match = 1;
+UPDATE WorkedInMatch SET workedtime = 6 WHERE staff = 100000001 AND MATCH = 1;
 
 .print ''
-.print 'tempo total do staff com NIF 100000001 = 16'
+.print 'tempo total DO staff com NIF 100000001 = 16'
 .print ''
 
-select * from TestingStaff100000001;
+SELECT * FROM TestingStaff100000001;
 
 .print ''
-.print 'update no tempo de trabalho na partida 1 deste staff de 6 para 1'
+.print 'update NO tempo de trabalho na partida 1 deste staff de 6 para 1'
 .print ''
 
-update WorkedInMatch set workedtime = 1 where staff = 100000001 and match = 1;
+UPDATE WorkedInMatch SET workedtime = 1 WHERE staff = 100000001 AND MATCH = 1;
 
 .print ''
-.print 'tempo total do staff com NIF 100000001 = 11'
+.print 'tempo total DO staff com NIF 100000001 = 11'
 .print ''
 
-select * from TestingStaff100000001;
+SELECT * FROM TestingStaff100000001;
 
 .print ''
 .print 'verificar REMOVE'
 .print ''
-.print 'tempo total do staff com NIF 100000001 = 11'
+.print 'tempo total DO staff com NIF 100000001 = 11'
 .print ''
 
-select * from TestingStaff100000001;
+SELECT * FROM TestingStaff100000001;
 
 .print ''
 .print 'vamos eliminar o tempo de trabalho da partida 1'
 .print ''
 
-delete from WorkedInMatch where staff = 100000001 and match = 1;
+DELETE FROM WorkedInMatch WHERE staff = 100000001 AND MATCH = 1;
 
 .print ''
-.print 'tempo total do staff com NIF '100000001' = 10'
+.print 'tempo total DO staff com NIF '100000001' = 10'
 .print ''
 
-select * from TestingStaff100000001;
+SELECT * FROM TestingStaff100000001;
 
 .print ''
-.print 'vamos inserir um novo tempo de trabalho a esse staff'
+.print 'vamos inserir um novo tempo de trabalho A esse staff'
 .print ''
 
-insert into WorkedInMatch VALUES(100000001, 1, 3);
+INSERT INTO WorkedInMatch VALUES(100000001, 1, 3);
 
 .print ''
-.print 'tempo total do staff com NIF 100000001 = 13'
+.print 'tempo total DO staff com NIF 100000001 = 13'
 .print ''
 
-select * from TestingStaff100000001;
+SELECT * FROM TestingStaff100000001;
