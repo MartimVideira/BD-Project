@@ -456,7 +456,7 @@ def pergunta7():
     number_of_spaces: int = 8
     print("Equipa", (number_of_spaces - 5) * " ", "Paises")
     for value in lista:
-        print(value[0], (number_of_spaces - len(str(value[0]))) * " ", value[1], f"Total: {sum(value[1].values())}")
+        print(value[0], (number_of_spaces - len(str(value[0]))) * " ", value[1])
 
 def pergunta8():
     pass

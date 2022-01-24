@@ -2,4 +2,7 @@
 .headers on
 .nullvalue null
 
-select distinct Gname from Game where Game.gameId in (select distinct game from GameFan where GameFan.fan in (select NIF from Fan where Fan.address in (select addressId from Address where city = 'Lisbon')));
+select distinct Gname from Game where Game.gameId in (
+select distinct game from
+GameFan where GameFan.fan in (select NIF from Fan where Fan.address in (select
+addressId from Address where city = 'Lisbon')));
