@@ -1,6 +1,6 @@
-.mode columns
-.headers on
-.nullvalue null
+.mode COLUMN
+.headers ON
+.nullvalue NULL
 
 
 -- Qual o fã que torce pelo maior número de equipas?
@@ -8,19 +8,18 @@
 .read criar.sql
 .read povoar.sql
 
--- Diferentes Maneiras de se fazer.
-
--- Fan schema : Fan(NIF,phoneNumber,emailAddress,nationality,NAME,address)
+--                      Used Schemas: 
+-- Fan SCHEMA : Fan(NIF,phoneNumber,emailAddress,nationality,NAME,address)
 -- TeamFan : TeamFan(fan,team)
 
-Create view nif_name_numero_equipas_que_gosta as
-Select  nIF, nAME,Count(Team) as nrdeequipasquegosta from TeamFan Join Fan  On NIF=fan
-Group by NIF;
+CREATE VIEW nif_name_numero_equipas_que_gosta AS
+SELECT  nIF, NAME,Count(Team) AS nrdeequipasquegosta FROM TeamFan JOIN Fan  ON NIF=fan
+GROUP BY NIF;
 
 -- 1
-Select * from nif_name_numero_equipas_que_gosta 
-order by NrDeEquipasQueGosta Desc
-limit 1;
+SELECT * FROM nif_name_numero_equipas_que_gosta 
+ORDER BY NrDeEquipasQueGosta DESC
+LIMIT 1;
 
 --2 
-Select NIF, NAME, Max(NrDeEquipasQueGosta) from nif_name_numero_equipas_que_gosta;
+SELECT NIF, NAME, MAX(NrDeEquipasQueGosta) FROM nif_name_numero_equipas_que_gosta;

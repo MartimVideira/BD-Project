@@ -1,25 +1,29 @@
-.mode columns
-.headers on
-.nullvalue null
+.mode column
+.headers ON
+.nullvalue NULL
 
--- What is the country with the less productive staff
+-- What IS the country WITH the LESS productive staff
 
 .read criar.sql
+.read gatilho1_adiciona.sql
 .read povoar.sql
 .read povoarAddresses.sql
 
--- Address schema : Address(addressId,country,city,zipCode)
--- Staff schema : Staff(NIF,phoneNumber,emailAddress,nationality,NAME,totalWorkedHours,address,staffType)
+--                      Used Schemas: 
+-- Address SCHEMA : Address(addressId,country,city,zipCode)
+-- Staff SCHEMA : Staff(NIF,phoneNumber,emailAddress,nationality,NAME,totalWorkedHours,address,staffType)
 
 
-create view addressId_country as
-select  addressId, country from Address;
+CREATE VIEW addressId_country AS
+SELECT  addressId, country FROM Address;
 
-select * from addressId_country;
 
 
 -- Aqui vou ver aqueles joins todos bonitos para podermos obter  muitos paises num query
 
-select country,Avg(totalWorkedHours) from Staff join addressId_country on addressId=address
-group by country
-order by Avg(totalWorkedHours) desc;
+SELECT country, AVG(totalWorkedHours) FROM Staff JOIN addressId_country ON addressId=address
+GROUP BY country
+ORDER BY AVG(totalWorkedHours) ASC
+LIMIT 1;
+
+.read gatilho1_remove.sql
