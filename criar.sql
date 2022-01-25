@@ -5,7 +5,8 @@ Create Table Fan(
     emailAddress Text Not Null Unique,
     nationality Text,
     Name Text Not Null,
-    address Integer References Address(addressId) On Delete Cascade On Update Cascade
+    address Integer References Address(addressId) On Delete Cascade On Update Cascade,
+    CONSTRAINT emailFormat CHECK (emailAddress like '%@%.com')
 );
 
 
@@ -17,7 +18,9 @@ Create Table Player(
     nationality Text,
     Name Text Not Null,
     addressId Integer  References Address(addressId) On Delete Cascade On Update Cascade,
-    team Integer  References Team(teamId) On Delete Cascade On Update Cascade
+    team Integer  References Team(teamId) On Delete Cascade On Update Cascade,
+    CONSTRAINT emailFormat CHECK (emailAddress like '%@%.com')
+
 );
 
 
@@ -31,7 +34,9 @@ Create Table Staff(
     totalWorkedHours  Int  Default 0,
     address Integer  References Address(addressId) On Delete Cascade On Update Cascade,
     staffType Text  References StaffType(STname) On Delete Cascade On Update Cascade,
-    Constraint noNegativeHours Check (totalWorkedHours >=0)
+    Constraint noNegativeHours Check (totalWorkedHours >=0),
+    CONSTRAINT emailFormat CHECK (emailAddress like '%@%.com')
+
 );
 
 
