@@ -15,6 +15,8 @@
 create view addressId_country as
 select  addressId, country from Address;
 
+select * from addressId_country;
+
 
 -- Aqui vou ver aqueles joins todos bonitos para podermos obter  muitos paises num query
 
