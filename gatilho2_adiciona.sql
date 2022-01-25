@@ -4,17 +4,23 @@
 
 --gatilho2_adiciona.sql
 
---verifica, se o tempo introduzido é válido (maior ou igual a 0)
-Create Trigger TimeCheckConstraint Before Insert on Match
+--verifica, se o tempo introduzido é válido (maior ou igual a 0) antes da inserção
+Create Trigger durationCheckBeforeInsert Before Insert on Match
 When (new.duration < '00:00')
 Begin
-    Select raise(ROLLBACK, 'Existe uma duracao invalida');
+    Select raise(ABORT, 'Existe uma duracao invalida');
 End;
 
---insert
-CREATE TRIGGER addEndTime
-AFTER INSERT ON Match
-FOR EACH ROW
-BEGIN
-	UPDATE match SET new.endTime = old.startime + old.duration;
+--insert, depois de inserir, o endtime deve aparecer como soma de starttime e duration
+CREATE TRIGGER addEndTime 
+AFTER INSERT ON Match 
+BEGIN 
+    update match set endtime = time(strftime('%s',startTime) + strftime('%s',duration),'unixepoch');
 END;
+
+--verifica, se o tempo introduzido é válido (maior ou igual a 0) antes da atualização
+Create Trigger durationCheckBeforeUpdate Before update on Match
+When (new.duration < '00:00')
+Begin
+    Select raise(ABORT, 'Existe uma duracao invalida');
+End;

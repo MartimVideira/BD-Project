@@ -1,6 +1,4 @@
-.mode COLUMNS
-.headers ON
-.nullvalue NULL
-
-drop trigger if exists TimeCheckConstraint ;
+drop trigger if exists durationCheckBeforeInsert ;
 drop trigger if exists addEndTime;
+drop trigger if exists durationCheckBeforeUpdate ;
+drop trigger if exists updateEndTime;

@@ -58,14 +58,14 @@ create table Team(
 );
 
 
-drop table if exists match;
-create table match (
-    matchId integer primary key AUTOINCREMENT,
-    startTime date,
-    duration date,
-    endTime date default null,
-    gameId integer references Game(gameId) on delete cascade on update cascade,
-    addressId integer  references  Address(addressId) on delete cascade on update cascade
+Drop Table If Exists Match;
+Create Table Match (
+    matchId Integer Primary Key AUTOINCREMENT,
+    startTime Time,
+    duration Time,
+    endTime Time Default Null,
+    gameId Integer References Game(gameId) On Delete Cascade On Update Cascade,
+    addressId Integer  References  Address(addressId) On Delete Cascade On Update Cascade
 );
 --Trigger: derived attribute endtime is startime + duration  
 
