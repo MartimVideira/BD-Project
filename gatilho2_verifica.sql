@@ -49,3 +49,11 @@ select * from match;
 .print ''
 
 Insert into match(starttime,duration,gameid,addressid) values('10:30','-01:30',2,15);
+
+.print ''
+.print 'validar o update para um valor negativo (embora nao faca muito sentido)'
+.print ''
+.print 'deve aparecer 1 mensagem'
+.print ''
+
+update match set duration = '-01:00';
