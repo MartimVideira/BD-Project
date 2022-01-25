@@ -1,37 +1,42 @@
-drop table if exists Fan;
-create table Fan(
-    NIF int primary key,
-    phoneNumber int unique,
-    emailAddress text not null unique,
-    nationality text,
-    name text not null,
-    address integer references Address(addressId) on delete cascade on update cascade
+Drop Table If Exists Fan;
+Create Table Fan(
+    NIF Int Primary Key,
+    phoneNumber Int Unique,
+    emailAddress Text Not Null Unique,
+    nationality Text,
+    Name Text Not Null,
+    address Integer References Address(addressId) On Delete Cascade On Update Cascade,
+    CONSTRAINT emailFormat CHECK (emailAddress like '%@%.com')
 );
 
 
-drop table if exists Player;
-create table Player(
-    NIF int primary key,
-    phoneNumber int unique,
-    emailAddress text not null unique,
-    nationality text,
-    name text not null,
-    addressId integer  references Address(addressId) on delete cascade on update cascade,
-    team integer  references Team(teamId) on delete cascade on update cascade
+Drop Table If Exists Player;
+Create Table Player(
+    NIF Int Primary Key,
+    phoneNumber Int Unique,
+    emailAddress Text Not Null Unique,
+    nationality Text,
+    Name Text Not Null,
+    addressId Integer  References Address(addressId) On Delete Cascade On Update Cascade,
+    team Integer  References Team(teamId) On Delete Cascade On Update Cascade,
+    CONSTRAINT emailFormat CHECK (emailAddress like '%@%.com')
+
 );
 
 
-drop table if exists Staff;
-create table Staff(
-    NIF int  primary key,
-    phoneNumber int unique,
-    emailAddress text not null unique,
-    nationality text,
-    name text not null,
-    totalWorkedHours  int  default 0,
-    address integer  references Address(addressId) on delete cascade on update cascade,
-    staffType text  references StaffType(STname) on delete cascade on update cascade,
-    constraint noNegativeHours check (totalWorkedHours >=0)
+Drop Table If Exists Staff;
+Create Table Staff(
+    NIF Int  Primary Key,
+    phoneNumber Int Unique,
+    emailAddress Text Not Null Unique,
+    nationality Text,
+    Name Text Not Null,
+    totalWorkedHours  Int  Default 0,
+    address Integer  References Address(addressId) On Delete Cascade On Update Cascade,
+    staffType Text  References StaffType(STname) On Delete Cascade On Update Cascade,
+    Constraint noNegativeHours Check (totalWorkedHours >=0),
+    CONSTRAINT emailFormat CHECK (emailAddress like '%@%.com')
+
 );
 
 
