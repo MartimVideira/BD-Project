@@ -1,3 +1,7 @@
+.mode columns
+.headers ON
+.nullvalue NULL
+
 --depois de inserir o tempo de trabalho, adicionar esse tempo ao tempo total de trabalho DO respetivo trabalhador
 CREATE TRIGGER addTotalWorkedHours
 AFTER INSERT ON WorkedInMatch
