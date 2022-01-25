@@ -14,7 +14,7 @@
 -- TeamFan : TeamFan(fan,team)
 
 Create view nif_name_numero_equipas_que_gosta as
-Select  NIF, NAME,Count(team) as NrDeEquipasQueGosta from TeamFan Join Fan  On NIF=fan
+Select  nIF, nAME,Count(Team) as nrdeequipasquegosta from TeamFan Join Fan  On NIF=fan
 Group by NIF;
 
 -- 1
