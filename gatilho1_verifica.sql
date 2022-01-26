@@ -4,7 +4,7 @@
 
 --gatilho1_verifica.sql - deve verificar que o tempo total de trabalho sem TRIGGER é 0 para todos os staff
 CREATE VIEW NIFAndTotalWorkedHours AS 
-SELECT NIF, totalWorkedHours AS totalWorkedHoursWithoutTRIGGER FROM staff;
+SELECT NIF, totalWorkedHours FROM staff;
 
 CREATE VIEW TestingStaff100000001 AS 
 SELECT * FROM NIFAndTotalWorkedHours WHERE nif = 100000001;

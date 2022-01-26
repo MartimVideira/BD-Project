@@ -55,7 +55,7 @@ INSTEAD OF INSERT ON participation_results_by2_teams
 FOR EACH ROW
 BEGIN 
     SELECT 
-        raise(Rollback,'Pelo Menos uma equipa inserida não existe!!') 
+        raise(ABORT,'Pelo Menos uma equipa inserida nao existe!!') 
     WHERE (2 > (select COUNT(TEAMID) 
                 FROM Team 
                 WHERE (Team.teamId=new.T1Id OR Team.teamId=new.T2Id)));
