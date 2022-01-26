@@ -1,4 +1,4 @@
-.mode COLUMN
+.mode column
 .headers ON
 .nullvalue NULL
 
@@ -9,7 +9,7 @@
 SELECT  
     Team.teamId, 
     Tname, 
-    AVG(classification) AS AverageScore , 
+    ROUND(AVG(classification),2) AS AverageScore , 
     MIN(classification) AS Best , 
     MAX(classification) AS  Worst 
 FROM Team 
