@@ -4,19 +4,13 @@
 
 
 
---Qual A média, o mínimo e o máximo de ordenado que A organização terá de pagar
+--Qual o total , A média, o mínimo e o máximo de ordenado que a organização terá de pagar
 --aos staffs arredondado A duas casas decimais?
 
 -- Deverá ser usada esta ordem pois esta query necessita do trigger para fazer sentido
 -- .read criar.sql
 -- .read gatilho1_adiciona.sql
 -- .read povoar.sql
-
-
-.print 'O total, a média, o mínimo e o máximo valor que a organização terá de pagar aos staffs: '
-.print '(arredondado a duas casas de'
-.print ''
-
 
 --Query
 SELECT 

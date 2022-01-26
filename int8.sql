@@ -10,9 +10,6 @@
 -- .read gatilho1_adiciona.sql
 -- .read povoar.sql
 
---                      Used Schemas: 
--- Address SCHEMA : Address(addressId,country,city,zipCode)
--- Staff SCHEMA : Staff(NIF,phoneNumber,emailAddress,nationality,NAME,totalWorkedHours,address,staffType)
 
 SELECT DISTINCT country, AVG(totalWorkedHours) FROM (Address LEFT JOIN Staff ON addressId=address)
 GROUP BY country

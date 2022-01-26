@@ -2,7 +2,7 @@
 .headers ON
 .nullvalue NULL
 
---Qual o país (ou países) com mais jogadores?
+--Qual o país (ou países) com mais jogadores? (listados por ordem Alfabetica em caso de empate)
 
 CREATE VIEW numero_jogadores_por_pais AS
 SELECT DISTINCT A.country,(
@@ -13,4 +13,5 @@ SELECT DISTINCT A.country,(
 FROM Address A;
 
 SELECT country , TotalNumberOfPlayers FROM numero_jogadores_por_pais
-WHERE TotalNumberOfPlayers = (select MAX(TOTALNUMBEROFPLAYERS) FROM numero_jogadores_por_pais);
+WHERE TotalNumberOfPlayers = (select MAX(TOTALNUMBEROFPLAYERS) FROM numero_jogadores_por_pais)
+order by country asc;
