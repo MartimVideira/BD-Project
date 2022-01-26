@@ -19,4 +19,4 @@ GROUP BY country
 ORDER BY AVG(totalWorkedHours) DESC, country ASC;
 
 
--- .read gatilho1_remove.sql
+-- .read gatilho1_remove.sql        

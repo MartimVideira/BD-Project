@@ -3,11 +3,11 @@
 .nullvalue NULL
 
 -- Qual A equipa mais polarizante?
--- Define-se como equipa mais polarizante A que obtem uma maior diferenca de melhor pontuacao e pior, maior e que 
+-- Define-se como equipa mais polarizante A que obtem uma maior diferenca entre a melhor e a pior pontuaçao, e que 
 -- tenha obtido pior classificacao NO evento.
 
 
-
+--                      Used Schemas: 
 -- team SCHEMA : Team(teamId,Tname,email)
 -- participation SCHEMA : Participation(teamId,matchId,classification)
 -- Classification SCHEMA : Classification(classification,prize)

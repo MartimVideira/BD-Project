@@ -2,7 +2,7 @@
 .headers ON
 .nullvalue NULL
 
---Qual é A equipa que tem mais fãs estrangeiros? Estrangeiros em relação A Portugal?
+-- Qual é a equipa que tem mais fãs que não sejam portugueses?
 
 --Query
 SELECT team, MAX(Nfan) 
