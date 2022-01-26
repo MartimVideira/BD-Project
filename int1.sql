@@ -16,4 +16,13 @@ WHERE Game.gameId IN (
         WHERE Fan.address IN (
             SELECT addressId 
             FROM Address 
-            WHERE city = 'Lisbon')));
+            WHERE city = 'Lisbon')))
+ORDER BY Gname;
+
+--Using join
+SELECT DISTINCT Gname from gamefan
+join game on Gamefan.game = game.gameId
+join fan on Gamefan.fan = fan.NIF
+join address on fan.address = address.addressid
+where city = 'Lisbon'
+ORDER BY Gname;
