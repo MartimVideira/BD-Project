@@ -1,125 +1,125 @@
-Drop Table If Exists Fan;
-Create Table Fan(
-    NIF Int Primary Key,
-    phoneNumber Int Unique,
-    emailAddress Text Not Null Unique,
-    nationality Text,
-    Name Text Not Null,
-    address Integer References Address(addressId) On Delete Cascade On Update Cascade,
-    CONSTRAINT emailFormat CHECK (emailAddress like '%@%.com')
+DROP TABLE IF EXISTS Fan;
+CREATE TABLE Fan(
+    NIF INT PRIMARY KEY,
+    phoneNumber INT UNIQUE,
+    emailAddress TEXT NOT NULL UNIQUE,
+    nationality TEXT,
+    NAME TEXT NOT NULL,
+    address INTEGER REFERENCES Address(addressId) ON DELETE SET NULL ON UPDATE CASCADE,
+    CONSTRAINT emailFormat CHECK (emailAddress LIKE '%@%.com')
 );
 
 
-Drop Table If Exists Player;
-Create Table Player(
-    NIF Int Primary Key,
-    phoneNumber Int Unique,
-    emailAddress Text Not Null Unique,
-    nationality Text,
-    Name Text Not Null,
-    addressId Integer  References Address(addressId) On Delete Cascade On Update Cascade,
-    team Integer  References Team(teamId) On Delete Cascade On Update Cascade,
-    CONSTRAINT emailFormat CHECK (emailAddress like '%@%.com')
-
-);
-
-
-Drop Table If Exists Staff;
-Create Table Staff(
-    NIF Int  Primary Key,
-    phoneNumber Int Unique,
-    emailAddress Text Not Null Unique,
-    nationality Text,
-    Name Text Not Null,
-    totalWorkedHours  Int  Default 0,
-    address Integer  References Address(addressId) On Delete Cascade On Update Cascade,
-    staffType Text  References StaffType(STname) On Delete Cascade On Update Cascade,
-    Constraint noNegativeHours Check (totalWorkedHours >=0),
-    CONSTRAINT emailFormat CHECK (emailAddress like '%@%.com')
+DROP TABLE IF EXISTS Player;
+CREATE TABLE Player(
+    NIF INT PRIMARY KEY,
+    phoneNumber INT UNIQUE,
+    emailAddress TEXT NOT NULL UNIQUE,
+    nationality TEXT,
+    NAME TEXT NOT NULL,
+    addressId INTEGER  REFERENCES Address(addressId) ON DELETE SET NULL ON UPDATE CASCADE,
+    team INTEGER REFERENCES Team(teamId) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT emailFormat CHECK (emailAddress LIKE '%@%.com')
 
 );
 
 
-drop table if exists Address;
-create table Address(
-    addressId integer primary key AUTOINCREMENT,
-    country text not null,
-    city text not null,
-    zipCode text not null
+DROP TABLE IF EXISTS Staff;
+CREATE TABLE Staff(
+    NIF INT  PRIMARY KEY,
+    phoneNumber INT UNIQUE,
+    emailAddress TEXT NOT NULL UNIQUE,
+    nationality TEXT,
+    NAME TEXT NOT NULL,
+    totalWorkedHours  INT  DEFAULT 0,
+    address INTEGER  REFERENCES Address(addressId) ON DELETE SET NULL ON UPDATE CASCADE,
+    staffType TEXT  REFERENCES StaffType(STname) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT noNegativeHours CHECK (totalWorkedHours >=0),
+    CONSTRAINT emailFormat CHECK (emailAddress LIKE '%@%.com')
+
 );
 
 
-drop table if exists StaffType;
-create table StaffType(
-    STname text  primary key,
-    costPerHour float 
-);
-
-drop table if exists Team;
-create table Team(
-    teamId integer primary key AUTOINCREMENT, 
-    Tname text not null,
-    email text not null 
+DROP TABLE IF EXISTS Address;
+CREATE TABLE Address(
+    addressId INTEGER PRIMARY KEY AUTOINCREMENT,
+    country TEXT NOT NULL,
+    city TEXT NOT NULL,
+    zipCode TEXT NOT NULL
 );
 
 
-Drop Table If Exists Match;
-Create Table Match (
-    matchId Integer Primary Key AUTOINCREMENT,
-    startTime Time,
-    duration Time,
-    endTime Time Default Null,
-    gameId Integer References Game(gameId) On Delete Cascade On Update Cascade,
-    addressId Integer  References  Address(addressId) On Delete Cascade On Update Cascade
+DROP TABLE IF EXISTS StaffType;
+CREATE TABLE StaffType(
+    STname TEXT  PRIMARY KEY,
+    costPerHour FLOAT 
 );
---Trigger: derived attribute endtime is startime + duration  
 
-
-drop table if exists Game;
-create table Game(
-    gameId integer  primary key AUTOINCREMENT,
-    Gname text not null,
-    typeOfGame text 
+DROP TABLE IF EXISTS Team;
+CREATE TABLE Team(
+    teamId INTEGER PRIMARY KEY AUTOINCREMENT, 
+    Tname TEXT NOT NULL,
+    email TEXT NOT NULL 
 );
 
 
-drop table if exists Participation;
-create table Participation(
-    teamId integer  references Team(teamId) on delete cascade on update cascade,
-    matchId integer  references match(matchid) on delete cascade on update cascade,
-    classification integer references Classification(classification) on delete cascade on update cascade,
-    primary key (TeamId,matchId)
+DROP TABLE IF EXISTS MATCH;
+CREATE TABLE MATCH (
+    matchId INTEGER PRIMARY KEY AUTOINCREMENT,
+    startTime TIME,
+    duration TIME,
+    endTime TIME DEFAULT NULL,
+    gameId INTEGER REFERENCES Game(gameId) ON DELETE CASCADE ON UPDATE CASCADE,
+    addressId INTEGER  REFERENCES  Address(addressId) ON DELETE SET NULL ON UPDATE CASCADE
 );
-
-drop table if exists Classification;
-create table Classification(
-    classification integer primary key AUTOINCREMENT,
-    prize text default "No Prize"
-);
+--Trigger: DERIVED ATTRIBUTE endtime IS startime + duration  
 
 
-drop table if exists WorkedInMatch;
-create table WorkedInMatch(
-    staff int  references Staff(NIF) on delete cascade on update cascade,
-    match integer   references match(matchid) on delete cascade on update cascade,
-    workedTime float default 0,
-    primary key (staff, match),
-    constraint noNegativeHours check (workedTime >=0)
-);
---Trigger to increment total workedhours after each match this staff member works on
-
-
-drop table if exists GameFan;
-create table GameFan(
-    fan int   references Fan(NIF) on delete cascade on update cascade,
-    game integer  references Game(gameId) on delete cascade on update cascade,
-    primary key (fan,game)
+DROP TABLE IF EXISTS Game;
+CREATE TABLE Game(
+    gameId INTEGER  PRIMARY KEY AUTOINCREMENT,
+    Gname TEXT NOT NULL,
+    typeOfGame TEXT 
 );
 
 
-drop table if exists TeamFan;
-create table TeamFan(
-    fan int  references Fan(NIF) on delete cascade on update cascade,
-    team integer  references Team(teamId) on delete cascade on update cascade,
-    primary key (fan,team)
+DROP TABLE IF EXISTS Participation;
+CREATE TABLE Participation(
+    teamId INTEGER  REFERENCES Team(teamId) ON DELETE CASCADE ON UPDATE CASCADE,
+    matchId INTEGER  REFERENCES MATCH(MATCHID) ON DELETE CASCADE ON UPDATE CASCADE,
+    classification INTEGER REFERENCES Classification(classification) ON DELETE CASCADE ON UPDATE CASCADE,
+    PRIMARY KEY (TeamId,matchId)
+);
+
+DROP TABLE IF EXISTS Classification;
+CREATE TABLE Classification(
+    classification INTEGER PRIMARY KEY AUTOINCREMENT,
+    prize TEXT DEFAULT "No Prize"
+);
+
+
+DROP TABLE IF EXISTS WorkedInMatch;
+CREATE TABLE WorkedInMatch(
+    staff INT  REFERENCES Staff(NIF) ON DELETE CASCADE ON UPDATE CASCADE,
+    MATCH INTEGER   REFERENCES MATCH(MATCHID) ON DELETE CASCADE ON UPDATE CASCADE,
+    workedTime FLOAT DEFAULT 0,
+    PRIMARY KEY (staff, match),
+    CONSTRAINT noNegativeHours CHECK (workedTime >=0)
+);
+--Trigger TO INCREMENT total workedhours AFTER EACH MATCH this staff MEMBER works ON
+
+
+DROP TABLE IF EXISTS GameFan;
+CREATE TABLE GameFan(
+    fan INT   REFERENCES Fan(NIF) ON DELETE CASCADE ON UPDATE CASCADE,
+    game INTEGER  REFERENCES Game(gameId) ON DELETE CASCADE ON UPDATE CASCADE,
+    PRIMARY KEY (fan,game)
+);
+
+
+DROP TABLE IF EXISTS TeamFan;
+CREATE TABLE TeamFan(
+    fan INT  REFERENCES Fan(NIF) ON DELETE CASCADE ON UPDATE CASCADE,
+    team INTEGER  REFERENCES Team(teamId) ON DELETE CASCADE ON UPDATE CASCADE,
+    PRIMARY KEY (fan,team)
 );
