@@ -458,23 +458,11 @@ def pergunta7():
     for value in lista:
         print(value[0], (number_of_spaces - len(str(value[0]))) * " ", value[1])
 
-def pergunta8():
-    pass
 
 
-def pergunta9():
-    pass
-
-
-def pergunta10():
-    pass
-
-
-def main(argv: list):
-
+def main(list):
     pergunta7()
-
-
+    
 if __name__ == "__main__":
     import sys
     main(sys.argv)

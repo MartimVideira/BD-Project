@@ -45,7 +45,7 @@ formating_func = choose_formating_func(args[1])
 filename = args[file_indx]
 
 
-with open(filename,"r") as f:
+with open(filename,"r",encoding="utf-8") as f:
     file_content : list = f.readlines()
 
 
@@ -68,7 +68,7 @@ for  line in file_content:
     parsed_content.append(" ".join(parsed_line))
 
 
-with open(filename,"w") as f:
+with open(filename,"w",encoding="utf-8") as f:
     for line in parsed_content:
         f.writelines(line)
         
