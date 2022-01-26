@@ -82,8 +82,8 @@ INSERT INTO Game('Gname','typeOfGame') VALUES
 
 
 
--- MATCH
-INSERT INTO MATCH(STARTTIME,DURATION,GAMEID,ADDRESSID) VALUES 
+-- match
+INSERT INTO match(starttime,duration,gameid,addressid) VALUES
         ('08:00','00:30',1,16),
         ('08:40','00:05',2,16),
         ('08:45','01:00',3,17),
