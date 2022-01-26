@@ -6,7 +6,7 @@
 
 
 --Query
-SELECT phoneNumber , NAME
+SELECT Name, phoneNumber
 FROM Player 
 WHERE Player.team  IN (
     SELECT DISTINCT teamId 

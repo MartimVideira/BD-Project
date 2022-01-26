@@ -9,10 +9,14 @@ SELECT teamId
 FROM (
     SELECT teamId, AVG(classification) AS averages 
     FROM Participation 
-    GROUP BY teamId) 
-WHERE averages IN  (    
-    SELECT MIN(averages) 
-    FROM (
-        SELECT teamId, AVG(classification) AS averages 
-        FROM Participation 
-        GROUP BY teamId));
+    GROUP BY teamId
+    ORDER BY averages ASC)
+LIMIT 1;
+
+--Alternative
+
+SELECT teamId, min(averages) as 'average classification'
+FROM (
+    SELECT teamId, AVG(classification) AS averages 
+    FROM Participation 
+    GROUP BY teamId);
