@@ -2,7 +2,7 @@ PRAGMA foreign_keys=ON;
 
 
 -- Address 
-insert into Address(country, city, zipCode) values 
+INSERT INTO Address(country, city, zipCode) VALUES 
         ('Portugal','Lisbon','0000-000'),
         ('France','Paris','12345'),
         ('Australia','Camberra','1234'),
@@ -59,7 +59,7 @@ INSERT INTO  Fan VALUES
 
 
 -- StaffType
-insert into StaffType values 
+INSERT INTO StaffType VALUES 
         ('Hoster',4.20),
         ('Analyst',6.9),
         ('Event manager',6.66),
@@ -71,7 +71,7 @@ insert into StaffType values
         ('Food provider', 2.80);
 
 -- Game
-insert into Game('Gname','typeOfGame') values 
+INSERT INTO Game('Gname','typeOfGame') VALUES 
         ('Chess','Abstract Strategy'),
         ('Tic Tac Toe','Paper-and-pencil'),
         ('PAC-MAN','Action Maze Chase'),
@@ -83,7 +83,7 @@ insert into Game('Gname','typeOfGame') values
 
 
 -- match
-insert into match(starttime,duration,gameid,addressid) values 
+INSERT INTO match(starttime,duration,gameid,addressid) VALUES
         ('08:00','00:30',1,16),
         ('08:40','00:05',2,16),
         ('08:45','01:00',3,17),
@@ -167,7 +167,7 @@ INSERT INTO Player VALUES
 
  
 -- Classification
-insert into Classification(prize) values 
+INSERT INTO Classification(prize) VALUES 
         ('Golden Trophy + Cash (1000€)'),
         ('Silver Trophy + Cash (500€)'),
         ('Bronze Trophy + Cash (250€)'),
@@ -210,7 +210,7 @@ INSERT INTO WorkedInMatch VALUES
       
 
 -- GameFan
-insert into GameFan values
+INSERT INTO GameFan VALUES
         (000000001, 4),
         (000000002, 1),
         (000000003, 5),
@@ -245,7 +245,7 @@ insert into GameFan values
 
 
 -- TeamFan
-insert into TeamFan values
+INSERT INTO TeamFan VALUES
         (000000001, 3),
         (000000002, 5),
         (000000003, 4),
