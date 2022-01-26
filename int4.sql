@@ -1,18 +1,18 @@
 .mode columns
-.headers on
-.nullvalue null
+.headers ON
+.nullvalue NULL
 
---Qual a equipa cuja classificação média para todas as partidas juntas é mais próxima de 1?
+--Qual A equipa cuja classificação média para todas AS partidas juntas é mais próxima de 1?
 
 --Query
-select teamId 
-from (
-    select teamId, avg(classification) as averages 
-    from Participation 
-    group by teamId) 
-where averages in  (    
-    select min(averages) 
-    from (
-        select teamId, avg(classification) as averages 
-        from Participation 
-        group by teamId));
+SELECT teamId 
+FROM (
+    SELECT teamId, AVG(classification) AS averages 
+    FROM Participation 
+    GROUP BY teamId) 
+WHERE averages IN  (    
+    SELECT MIN(averages) 
+    FROM (
+        SELECT teamId, AVG(classification) AS averages 
+        FROM Participation 
+        GROUP BY teamId));

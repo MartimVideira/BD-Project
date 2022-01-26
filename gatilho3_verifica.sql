@@ -4,13 +4,13 @@
 Pragma foreign_keys = ON;
 
 
-.print 'Neste exemplo é criada uma VIEW  que tem os dados relativos aos encontros que cada equipa teve com outra equiapa '
+.print 'Neste exemplo é criada uma VIEW  que tem os dados relativos aos encontros que cada equipa teve com outra equipa '
 
 .print 'Vamos inserir dados com as seguintes restricoes:'
 .print ''
-.print '- Se pelo menos uma das equipas que se tenta inserir nao existir deverá abortar A insercao'
+.print '- Se pelo menos uma das equipas que se tenta inserir nao existir deverá abortar a insercao'
 .print '- Se o matchId inserido nao corresponder A nenhum MATCH  será criado um MATCH com esse id '
-.print '- Entao serao adicionados dois tuplos à tabela Participations que reflitam A participacao das equipas nesses'
+.print '- Entao serao adicionados dois tuplos à tabela Participations que reflitam a participacao das equipas nesses'
 .print 'encontros com o resultado inserido!'
 
 .print ''

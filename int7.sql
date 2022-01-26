@@ -1,16 +1,16 @@
 .mode columns
-.headers on
-.nullvalue null
+.headers ON
+.nullvalue NULL
 
---Qual é a equipa que tem mais fãs estrangeiros? Estrangeiros em relação a Portugal?
+--Qual é A equipa que tem mais fãs estrangeiros? Estrangeiros em relação A Portugal?
 
 --Query
-select team, max(Nfan) 
-from (
-    select team, count(fan) as Nfan 
-    from teamfan 
-    where fan not in(
-        select nif 
-        from fan 
-        where fan.nationality == 'PT') 
-group by team);
+SELECT team, MAX(Nfan) 
+FROM (
+    SELECT team, COUNT(fan) AS Nfan 
+    FROM teamfan 
+    WHERE fan NOT IN(
+        SELECT nif 
+        FROM fan 
+        WHERE fan.nationality == 'PT') 
+GROUP BY team);

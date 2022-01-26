@@ -1,3 +1,4 @@
+from re import S
 import sys
 from tkinter.messagebox import RETRY
 from bs4 import BeautifulSoup
@@ -15,7 +16,8 @@ keyword_list = soup.find("ol")
 for listItem in keyword_list.childGenerator():
     sql_reserved_keywords.add(listItem.getText())
 
-
+sql_reserved_keywords.remove("COLUMNS")
+sql_reserved_keywords.remove("COLUMN")
 
 def strip_specials(word,closed_parentesis=False):
     specialCaracters = {'.',';','\t','\n','(',')',','}

@@ -1,10 +1,10 @@
 .mode columns
-.headers on
-.nullvalue null
+.headers ON
+.nullvalue NULL
 
 --Qual o prémio ganho por cada equipa em cada partida na qual participou?
 
 --Query
-select teamId, matchId, prize 
-from Participation natural join Classification 
+SELECT teamId, matchId, prize 
+FROM Participation NATURAL JOIN Classification 
 ORDER BY TEAMID;

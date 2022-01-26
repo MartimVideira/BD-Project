@@ -28,7 +28,6 @@ SELECT * FROM NIFAndTotalWorkedHours;
 .read povoar.sql
 SELECT * FROM NIFAndTotalWorkedHours;
 
---select NIF, totalWorkedHours AS totalWorkedHoursWithTRIGGER FROM staff;
 
 .print ''
 .print 'verificar UPDATE'
