@@ -8,7 +8,7 @@ insert into Address(country, city, zipCode) values
         ('Australia','Camberra','1234'),
         ('Canada','Ottawa','A1A 1A1'),
         ('Portugal','Porto','0000-001'),
-        ('UK','London','AA1'),
+        ('United Kingdom','London','AA1'),
         ('Egypt','Cairo','00000'),
         ('Finland','Helsinki','11111'),
         ('Indonesia','Jakarta','22222'),
@@ -30,7 +30,7 @@ insert into Address(country, city, zipCode) values
         ('Spain', 'Madrid', '28009'),
         ('Spain', 'Madrid', '28999'),
         ('Canada','Ottawa','A2A 2A2'), 
-        ('UK','London','AA2');
+        ('United Kingdom','London','AA2');
 
 
 -- Fan

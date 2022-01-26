@@ -1,25 +1,33 @@
-.mode COLUMN
+.mode column
 .headers ON
 .nullvalue NULL
 
 
--- Qual o fã que torce pelo maior número de equipas?
 
-.read criar.sql
-.read povoar.sql
+--Qual A média, o mínimo e o máximo de ordenado que A organização terá de pagar
+--aos staffs arredondado A duas casas decimais?
 
---                      Used Schemas: 
--- Fan SCHEMA : Fan(NIF,phoneNumber,emailAddress,nationality,NAME,address)
--- TeamFan : TeamFan(fan,team)
+-- Deverá ser usada esta ordem pois esta query necessita do trigger para fazer sentido
+-- .read criar.sql
+-- .read gatilho1_adiciona.sql
+-- .read povoar.sql
 
-CREATE VIEW nif_name_numero_equipas_que_gosta AS
-SELECT  nIF, NAME,Count(Team) AS nrdeequipasquegosta FROM TeamFan JOIN Fan  ON NIF=fan
-GROUP BY NIF;
 
--- 1
-SELECT * FROM nif_name_numero_equipas_que_gosta 
-ORDER BY NrDeEquipasQueGosta DESC
-LIMIT 1;
+.print 'O total, a média, o mínimo e o máximo valor que a organização terá de pagar aos staffs: '
+.print '(arredondado a duas casas de'
+.print ''
 
---2 
-SELECT NIF, NAME, MAX(NrDeEquipasQueGosta) FROM nif_name_numero_equipas_que_gosta;
+
+--Query
+SELECT 
+    ROUND( SUM( totalCost),2) AS Total , 
+    ROUND(AVG(TOTALCOST), 2) AS Average, 
+    ROUND(MIN(totalCost), 2) AS Minimum,
+    ROUND(MAX (totalCost), 2) AS Maximum 
+FROM 
+    (SELECT NAME,
+            totalWorkedHours*CostPerHour AS totalCost 
+    FROM staff, stafftype 
+    WHERE staff.stafftype = STname);
+
+-- .read gatilho1_remove.sql

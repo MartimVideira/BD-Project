@@ -1,14 +1,13 @@
 .mode columns
-.headers on
-.nullvalue null
+.headers ON
+.nullvalue NULL
 
---Quais são os nomes de todas as pessoas envolvidas no campeonato?
+--Quais são os nomes de todas AS pessoas envolvidas NO campeonato?
 
---Query
-SELECT distint NAME 
-FROM (
-    SELECT NAME 
-    FROM PLAYER UNION 
-    SELECT NAME FROM FAN UNION 
-    SELECT NAME FROM STAFF) 
+
+SELECT NAME FROM Player
+UNION
+SELECT NAME FROM Fan
+UNION
+SELECT NAME FROM Staff
 ORDER BY NAME;

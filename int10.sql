@@ -7,15 +7,19 @@
 -- tenha obtido pior classificacao NO evento.
 
 
-.read criar.sql
-.read povoar.sql
 
 -- team SCHEMA : Team(teamId,Tname,email)
 -- participation SCHEMA : Participation(teamId,matchId,classification)
 -- Classification SCHEMA : Classification(classification,prize)
 
-SELECT  Team.teamId, Tname, AVG(CLASSIFICATION) AS AverageScore , MIN(CLASSIFICATION) AS Best , MAX(CLASSIFICATION) AS  Worst 
-FROM Team JOIN participation 
+SELECT  
+    Team.teamId, 
+    Tname, 
+    AVG(classification) AS AverageScore , 
+    MIN(classification) AS Best , 
+    MAX(classification) AS  Worst 
+FROM Team 
+JOIN participation 
 ON participation.teamId=team.TeamId
 GROUP BY Team.teamId
 ORDER BY (Worst-Best) DESC ,AverageScore DESC;

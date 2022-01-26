@@ -18,7 +18,7 @@ for listItem in keyword_list.childGenerator():
 
 sql_reserved_keywords.remove("COLUMNS")
 sql_reserved_keywords.remove("COLUMN")
-
+sql_reserved_keywords.add("ROUND")
 def strip_specials(word,closed_parentesis=False):
     specialCaracters = {'.',';','\t','\n','(',')',','}
 

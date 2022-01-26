@@ -22,7 +22,8 @@ def add_cities():
         for tablerow in listaCountries.childGenerator():
             try:
                 city,country = (tablerow.find("td").text).split(",")
-                
+                country =country.strip()
+                city= city.strip() 
                 lista_cities.append((country,city,random_zip()))
 
             except:
